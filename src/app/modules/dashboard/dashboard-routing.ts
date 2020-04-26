@@ -7,11 +7,11 @@ import { OwnerComponent } from './components/owner/owner.component';
 
 const routes: Routes = [ 
 
-  {path: 'admin', component:  AdminComponent},
+  {path: 'admin-dashboard', component:  AdminComponent},
 
-  {path: 'collector', component: CollectorComponent},
+  {path: 'collector-dashboard', component: CollectorComponent},
 
-  {path: 'owner', component: OwnerComponent}  
+  {path: 'owner-dashboard', component: OwnerComponent}  
 
 ];
 

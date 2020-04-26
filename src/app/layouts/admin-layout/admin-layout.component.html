@@ -2,13 +2,42 @@
 <app-header class="header" (toggleSidebarForMe)="toggleSidebar()"></app-header>
 <div class=""  style="height: 50px; background-color: #673ab7 ">
     <div class="row" style="z-index: 0;">
-        <div class="col-md-3 offset-md-3 ml-5 mt-2">
-            <p class="lead text-white">Dashboard</p>
+        <div class="col-md-2 ml-2 mt-2 text-center">
+            <p class="lead text-white" >{{currentLink | titlecase}}</p>
         </div>
     </div>
 </div>
 <mat-drawer-container >
     <mat-drawer mode="side" [opened]="sideBarOpen" >
-        <app-sidebar></app-sidebar> 
+        
+        <mat-nav-list>
+            <div class="row " >
+                <div class="col-md-6 "  style="margin-left: 70px">
+                    <img src="assets/images/blue.jpg" alt="skuulba admin" class="rounded-circle" width="100px" height="100px" >
+                    <b class="text-bold ml-1">Administrator</b>
+                </div>
+                
+            </div>
+            <br>
+            <mat-divider></mat-divider>
+            <div class="text-center">
+        
+                <div *ngFor="let link of links">
+        
+                    <a  mat-list-item  routerLinkActive="is-active" [routerLink]="[link.url]"  (click)="setLinkName(link.name)" >  <mat-icon class="sidebar-icon">{{link.icon}}</mat-icon  > {{ link.name | titlecase}}</a>
+        
+                </div>
+        
+            </div>
+        
+        
+        <mat-divider></mat-divider>
+            
+        
+        </mat-nav-list>
+        
+        
+
+
     </mat-drawer>
     <mat-drawer-content><router-outlet></router-outlet></mat-drawer-content>
