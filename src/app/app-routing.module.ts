@@ -11,13 +11,13 @@ const routes: Routes= [
                      .then(m => m.AuthenticationModule)
 },
 
-// {
-//   path:'', 
-//   component: DefaultComponent,
-//   loadChildren: () => import('./modules/student/student.module')
-//                      .then(m => m.StudentModule)
-// },
-//{path: "**", redirectTo: "login"}
+ {
+   path:'dashboard', 
+   component: DefaultComponent,
+   loadChildren: () => import('./modules/dashboard/dashboard.module')
+                      .then(m => m.DashboardModule)
+ },
+{path: "**", redirectTo: "login"}
 ];
 
 @NgModule({
