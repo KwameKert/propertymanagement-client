@@ -15,6 +15,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { CollectorLayoutComponent } from './layouts/collector-layout/collector-layout.component';
+import { OwnerLayoutComponent } from './layouts/owner-layout/owner-layout.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     SidebarComponent,
     FooterComponent,
     DefaultComponent,
+    AdminLayoutComponent,
+    CollectorLayoutComponent,
+    OwnerLayoutComponent,
 
   ],
   imports: [
