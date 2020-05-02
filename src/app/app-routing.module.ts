@@ -16,21 +16,21 @@ const routes: Routes= [
 },
 
  {
-   path:'admin', 
+   path:'', 
    component: AdminLayoutComponent,
    loadChildren: () => import('./modules/dashboard/dashboard.module')
                       .then(m => m.DashboardModule),
    canActivate:[AuthGuard]                    
  },
  {
-   path:'collector', 
+   path:'', 
    component: CollectorLayoutComponent,
    loadChildren: () => import('./modules/dashboard/dashboard.module')
                       .then(m => m.DashboardModule),
    canActivate:[AuthGuard]                     
  },
  {
-   path:'owner', 
+   path:'', 
    component: OwnerLayoutComponent,
    loadChildren: () => import('./modules/dashboard/dashboard.module')
                       .then(m => m.DashboardModule),

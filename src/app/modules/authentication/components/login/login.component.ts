@@ -25,9 +25,40 @@ export class LoginComponent implements OnInit {
 
   loginUser(){
     this._authService.loginUser(this.loginForm.value).subscribe(data=>{
-      console.log(data.data)
+      let authData = {
+          userId: data.user.id,
+          token: data.token,
+          username: data.user.username,
+          role: data.user.roles[0].role
+      }
+      
+      this._authService.setUserDetails(authData);
+      let role = data.user.roles[0].role
+
+   //   console.log(authData, role)
+
+     
+      
+      switch(role){
+
+        case "ADMIN":
+          console.log(role)
+          this.router.navigate(['/admin-dashboard']);
+          break;
+
+        case "COLLECTOR":
+          this.router.navigate(['/collector-dashboard']);
+          break;
+
+        case "OWNER":
+          this.router.navigate(['/owner-dashboard']);
+          break;
+
+      }
+
     }, error=>{
 
+      console.error(error)
     })
     //this.router.navigate(['dashboard']);
   }

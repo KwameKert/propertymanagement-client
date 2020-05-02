@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent ,SidebarComponent,FooterComponent} from './layouts';
@@ -46,6 +46,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     MatSidenavModule,  
     HttpClientModule,
+    ToastrModule.forRoot(), 
+    
   
     
   ],

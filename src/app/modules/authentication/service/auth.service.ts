@@ -9,17 +9,18 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
    private _baseUrl :String = environment.api_host;
-   private loggedInStatus = localStorage.getItem("propStatus");
+   private loggedInStatus = localStorage.getItem("status");
 
    constructor(private _httpClient: HttpClient) { }
 
   loginUser(data: any ): Observable<any>{
-    return this._httpClient.post(`${this._baseUrl}/login`, data);
+    return this._httpClient.post(`${this._baseUrl}/login/`, data);
   }
 
   setUserDetails(authData: any){
-    localStorage.setItem("username", authData.userName);
-    localStorage.setItem("userId", authData.id)
+    localStorage.setItem("token", authData.token);
+    localStorage.setItem("username", authData.username);
+    localStorage.setItem("userId", authData.userId)
     localStorage.setItem("role", authData.role);
     localStorage.setItem("status", "active" )
   }
