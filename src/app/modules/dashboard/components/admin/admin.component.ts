@@ -10,32 +10,46 @@ export class AdminComponent implements OnInit {
 
   @ViewChild(MapInfoWindow, {static: false}) infoWindow: MapInfoWindow;
 
-  center = {lat: 5.5557, lng: -0.1963};
+  center = {lat: 5.559459, lng: -0.215029};
   markerOptions = {draggable: false};
-  markerPositions: google.maps.LatLngLiteral[] = [];
-  zoom = 4;
+  markers: Array<any> = [];
+  markerPositions: google.maps.LatLngLiteral[] = [
+    {lat: 5.597509500000001, lng:-0.2355881000000001}
+  ];
+  zoom = 10;
   display?: google.maps.LatLngLiteral;
+  infoContent = 'Hello'
 
   constructor() { }
 
   ngOnInit(): void {
+    this.markers.push({
+      position: {
+        lat:  5.597509500000001,
+        lng: -0.2355881000000001,
+      },
+      label: {
+        color: 'red',
+        text: 'Marker label ' + (this.markers.length + 1),
+      },
+      title: 'Marker title ' + (this.markers.length + 1),
+      info: 'Marker info ' + (this.markers.length + 1),
+      options: {
+      //  animation: google.maps.Animation.BOUNCE,
+      },
+    })
   }
 
-  addMarker(event: google.maps.MouseEvent) {
-    this.markerPositions.push(event.latLng.toJSON());
-  }
 
-  move(event: google.maps.MouseEvent) {
-    this.display = event.latLng.toJSON();
-  }
 
-  openInfoWindow(marker: MapMarker) {
+ 
+
+  openInfoWindow(marker: MapMarker, content) {
+    
+    this.infoContent = content
     this.infoWindow.open(marker);
   }
 
-  removeLastMarker() {
-    this.markerPositions.pop();
-  }
 
 
 }
