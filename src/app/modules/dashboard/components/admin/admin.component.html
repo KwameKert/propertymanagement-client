@@ -1,1 +1,16 @@
-<p>admin works!</p>
+<mat-card>
+    <google-map height="600px"
+    width="1020px"
+    [center]="center"
+    [zoom]="zoom"
+    (mapClick)="addMarker($event)"
+    (mapMousemove)="move($event)"
+    (mapRightclick)="removeLastMarker()">
+<map-marker #marker
+      *ngFor="let markerPosition of markerPositions"
+      [position]="markerPosition"
+      [options]="markerOptions"
+      (mapClick)="openInfoWindow(marker)"></map-marker>
+<map-info-window>Info Window content</map-info-window>
+</google-map>
+</mat-card>
