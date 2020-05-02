@@ -18,6 +18,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { CollectorLayoutComponent } from './layouts/collector-layout/collector-layout.component';
 import { OwnerLayoutComponent } from './layouts/owner-layout/owner-layout.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { OwnerLayoutComponent } from './layouts/owner-layout/owner-layout.compon
     MatButtonModule,
     MatListModule,
     MatSidenavModule,  
+    HttpClientModule,
   
     
   ],
