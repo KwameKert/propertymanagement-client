@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   setUserDetails(authData: any){
-    localStorage.setItem("token", authData.token);
+    localStorage.setItem("propToken", authData.token);
     localStorage.setItem("username", authData.username);
     localStorage.setItem("userId", authData.userId)
     localStorage.setItem("role", authData.role);

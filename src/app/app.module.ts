@@ -18,7 +18,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { CollectorLayoutComponent } from './layouts/collector-layout/collector-layout.component';
 import { OwnerLayoutComponent } from './layouts/owner-layout/owner-layout.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
+import { AuthInterceptor, TokenInterceptor } from './interceptors';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     DefaultComponent,
     AdminLayoutComponent,
     CollectorLayoutComponent,
-    OwnerLayoutComponent,
+    OwnerLayoutComponent
 
   ],
   imports: [
@@ -51,7 +53,11 @@ import { HttpClientModule } from '@angular/common/http';
   
     
   ],
-  providers: [],
+  providers: [
+    DatePipe, 
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

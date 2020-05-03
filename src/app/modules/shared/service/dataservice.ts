@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../../src/environments/environment';
 
-@Injectable()
+@Injectable({
+
+    providedIn: 'root'
+}
+)
 export class DataService {
 
 

@@ -7,10 +7,11 @@ import {MatCardModule} from '@angular/material/card';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { PreloaderComponent } from '../shared/preloader/preloader.component';
 
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, PreloaderComponent],
   imports: [
     AuthenticationRoutingModule,
     CommonModule,

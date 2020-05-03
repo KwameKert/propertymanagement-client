@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup,  FormBuilder,  Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../service/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
     isLoading: boolean = false;
     loginForm: FormGroup ;
 
-  constructor(private router: Router, private _fb: FormBuilder,private _authService: AuthService) { }
+  constructor(private router: Router, private _fb: FormBuilder,private _authService: AuthService, private _toastr: ToastrService) { }
 
   ngOnInit() {
     this.loginForm = this._fb.group({
@@ -24,7 +25,9 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser(){
+    this.isLoading  = true;
     this._authService.loginUser(this.loginForm.value).subscribe(data=>{
+      this._toastr
       let authData = {
           userId: data.user.id,
           token: data.token,
@@ -35,8 +38,9 @@ export class LoginComponent implements OnInit {
       this._authService.setUserDetails(authData);
       let role = data.user.roles[0].role
 
-   //   console.log(authData, role)
-
+      this._toastr.success("Welcome to Prop Management 🙂","",{
+        timeOut:2000
+      })
      
       
       switch(role){
@@ -59,6 +63,11 @@ export class LoginComponent implements OnInit {
     }, error=>{
 
       console.error(error)
+
+      this._toastr.info("Invalid credentials. 🥺","",{
+        timeOut:2000
+      })
+
     })
     //this.router.navigate(['dashboard']);
   }
