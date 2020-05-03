@@ -30,6 +30,13 @@ const routes: Routes= [
    canActivate:[AuthGuard]                     
  },
  {
+   path:'user', 
+   component: AdminLayoutComponent,
+   loadChildren: () => import('./modules/user/user.module')
+                      .then(m => m.UserModule),
+   canActivate:[AuthGuard]                     
+ },
+ {
    path:'', 
    component: OwnerLayoutComponent,
    loadChildren: () => import('./modules/dashboard/dashboard.module')

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { ListUserComponent } from './components/list-user/list-user.component';
 import { UserRoutingModule } from './user-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -10,7 +11,8 @@ import { UserRoutingModule } from './user-routing.module';
   declarations: [AddUserComponent, ListUserComponent],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule, 
+    SharedModule
   ]
 })
 export class UserModule { }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-layout',
@@ -8,12 +7,11 @@ import { Router } from '@angular/router';
 })
 export class AdminLayoutComponent implements OnInit {
 
-  currentLink: string = 'dashboard';
   sideBarOpen = true;
 
   links: Array<object> = [
-    {name: 'dashboard',url: '/dashboard', icon: 'home'},
-    {name: 'Owner', url: '/owners/list',  icon: 'supervised_user_circle'},
+    {name: 'dashboard',url: '/admin-dashboard', icon: 'home'},
+    {name: 'User', url: '/user/list',  icon: 'supervised_user_circle'},
     {name: 'event', url: '/events/list', icon: 'event'},
     {name: 'property', url: '/departments/list', icon: 'business'},
     {name: 'leader', url: '/leaders/list',icon: 'supervised_user_circle'},
@@ -22,22 +20,19 @@ export class AdminLayoutComponent implements OnInit {
 
 
  
-  constructor(private _router: Router) { }
+  constructor() { }
 
 
   ngOnInit(): void {
+
   }
 
   toggleSidebar(){
     this.sideBarOpen = !this.sideBarOpen;
   }
 
+  
 
-  setLinkName(name: string){
-
-    this.currentLink = name;
-
-  }
-
+  
 
 }
