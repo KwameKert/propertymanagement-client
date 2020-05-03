@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {FormControl, FormBuilder, Validators, FormGroup} from '@angular/forms';
 import { CrudService } from 'src/app/modules/shared/service';
 
@@ -11,6 +11,7 @@ export class AddUserComponent implements OnInit {
 
   userForm: FormGroup ;
   role: any = '';
+  @Output() newUser: EventEmitter<boolean> = new EventEmitter();
 
   constructor(private _fb: FormBuilder, private _crudService: CrudService) { }
 
@@ -35,6 +36,7 @@ export class AddUserComponent implements OnInit {
     this._crudService.addItem(this.userForm.value, "user").subscribe(data=>{
       //this.userForm.reset();
 
+      this.newUser.emit(true)
     }, error=>{
 
       console.error(error)

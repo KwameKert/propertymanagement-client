@@ -91,7 +91,7 @@
 
         <div [ngClass]="addUserColumn">
 
-          <app-add-user></app-add-user>
+          <app-add-user (newUser)="newUserCreated($event)"></app-add-user>
         </div>
       </div>
   
