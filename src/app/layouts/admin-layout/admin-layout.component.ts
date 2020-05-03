@@ -11,9 +11,9 @@ export class AdminLayoutComponent implements OnInit {
 
   links: Array<object> = [
     {name: 'dashboard',url: '/admin-dashboard', icon: 'home'},
-    {name: 'User', url: '/user/list',  icon: 'supervised_user_circle'},
-    {name: 'event', url: '/events/list', icon: 'event'},
-    {name: 'property', url: '/departments/list', icon: 'business'},
+    {name: 'Property Owner', url: '/user/list_owner',  icon: 'supervised_user_circle'},
+    {name: 'Property', url: '/events/list', icon: 'widgets'},
+    {name: 'user', url: '/user/list_user', icon: 'account_box'},
     {name: 'leader', url: '/leaders/list',icon: 'supervised_user_circle'},
   ]
     

@@ -1,6 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { environment} from '../../../../environments/environment';
+import { Observable } from 'rxjs';
+
+
+export interface User {
+  fullName: string;
+  username: string;
+  role: string;
+  email: string;
+}
 
 
 
@@ -13,18 +22,21 @@ export class CrudService {
   constructor(private _httpClient: HttpClient) { }
 
 
+
+
+
   deleteItem({id, module}){
     return this._httpClient.delete(`${this._baseUrl}/${module}/${id}`);
    }
 
 
    
-  public fetchItem({id, module}){
+  public fetchItem({id, module}): Observable<any>{
     return this._httpClient.get(`${this._baseUrl}/${module}/${id}`)
   }
 
 
-  public fetchAll(module: any){
+  public fetchAll(module: any):  Observable<any> {
     return this._httpClient.get(`${this._baseUrl}/${module}/`)
   }
 
