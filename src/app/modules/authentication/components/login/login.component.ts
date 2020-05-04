@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
   loginUser(){
     this.isLoading  = true;
     this._authService.loginUser(this.loginForm.value).subscribe(data=>{
+
       this._toastr
       let authData = {
           userId: data.user.id,
@@ -38,28 +39,26 @@ export class LoginComponent implements OnInit {
       this._authService.setUserDetails(authData);
       let role = data.user.roles[0].role
 
-      this._toastr.success("Welcome to Prop Management 🙂","",{
-        timeOut:2000
-      })
+     
      
       
       switch(role){
-
         case "ADMIN":
           console.log(role)
           this.router.navigate(['/admin-dashboard']);
           break;
-
         case "COLLECTOR":
           this.router.navigate(['/collector-dashboard']);
           break;
-
         case "OWNER":
           this.router.navigate(['/owner-dashboard']);
           break;
 
       }
 
+      this._toastr.success("Welcome to Prop Management 🙂","",{
+        timeOut:2000
+      })
     }, error=>{
 
       console.error(error)
@@ -68,6 +67,8 @@ export class LoginComponent implements OnInit {
         timeOut:2000
       })
 
+    }).add(()=>{
+      this.isLoading = false;
     })
     //this.router.navigate(['dashboard']);
   }
