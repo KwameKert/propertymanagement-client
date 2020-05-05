@@ -1,0 +1,23 @@
+<mat-card style="margin-bottom:100px">
+    <google-map height="600px"
+    width="1020px"
+    [center]="center"
+    [zoom]="zoom">
+<map-marker #markerElem
+      *ngFor="let marker of markers"
+      [position]="marker.position"
+      [options]="marker.options"
+      (mapClick)="openInfoWindow(markerElem, marker.info)"></map-marker>
+      <map-info-window >
+        <div>
+            <p><b>PropertyNo: </b>N234sdf</p>
+            <p><b>Latitude: </b>N234sdf</p>
+            <p><b>Longitude: </b>N234sdf</p>
+            <p><b>Owner: </b>N234sdf</p>
+            <p><b>Description: </b> {{ infoContent}}</p>
+        </div>  
+       </map-info-window>
+
+      
+</google-map>
+</mat-card>

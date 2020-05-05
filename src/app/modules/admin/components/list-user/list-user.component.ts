@@ -88,4 +88,7 @@ export class ListUserComponent implements OnInit {
   newUserCreated(event: any){
     this.loadAllUsers();
   }
+
+
+  
 }

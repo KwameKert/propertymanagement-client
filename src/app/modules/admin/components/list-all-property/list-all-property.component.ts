@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MapInfoWindow, MapMarker } from '@angular/google-maps';
-
-
+import { CrudService } from 'src/app/modules/shared/service';
+import { MatPaginator } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-all-property',
@@ -11,47 +11,46 @@ import { MapInfoWindow, MapMarker } from '@angular/google-maps';
 export class ListAllPropertyComponent implements OnInit {
 
 
-  @ViewChild(MapInfoWindow, {static: false}) infoWindow: MapInfoWindow;
+  isLoading: boolean = true;
+  dataSource: any = null;
 
-  center = {lat: 5.559459, lng: -0.215029};
-  markerOptions = {draggable: false};
-  markers: Array<any> = [];
-  markerPositions: google.maps.LatLngLiteral[] = [
-    {lat: 5.597509500000001, lng:-0.2355881000000001}
-  ];
-  zoom = 10;
-  display?: google.maps.LatLngLiteral;
-  infoContent = 'Hello'
+  isAddProperty: boolean = false;
 
-  constructor() { }
+  displayedColumns: Array<string> = ['propNo', 'owner', 'propCat', 'value', 'actions'] ;
+  
+
+  constructor(private _crudService: CrudService, private _router: Router) { }
+
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
+  
 
   ngOnInit(): void {
-    this.markers.push({
-      position: {
-        lat:  5.597509500000001,
-        lng: -0.2355881000000001,
-      },
-      label: {
-        color: 'red',
-        text: 'Marker label ' + (this.markers.length + 1),
-      },
-      title: 'Marker title ' + (this.markers.length + 1),
-      info: 'Marker info ' + (this.markers.length + 1),
-      options: {
-      //  animation: google.maps.Animation.BOUNCE,
-      },
+    this.loadAllProperties();
+  }
+
+
+  loadAllProperties(){
+    this._crudService.fetchAll("property").subscribe(data=>{
+      
+    
+      this.dataSource = data.data;
+      this.dataSource.paginator = this.paginator;
+      this.isLoading = false;
+    }, error=>{
+
     })
   }
 
 
 
- 
-
-  openInfoWindow(marker: MapMarker, content) {
-    
-    this.infoContent = content
-    this.infoWindow.open(marker);
+  newUserCreated(event: any){
+    this.loadAllProperties();
   }
 
+  addProperty(){
+    this._router.navigate(['/admin/add-property'])
+  }
 
 }

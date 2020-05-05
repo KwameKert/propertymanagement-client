@@ -1,0 +1,70 @@
+
+
+        <div class="row mt-3">
+            <div class="col-md-12 text-center ">
+                <form [formGroup]="propertyForm" (ngSubmit)="saveProperty()">
+                    <mat-form-field appearance="outline" style="width:500px"  >
+                        <mat-label>Property No. </mat-label>
+                        <input matInput placeholder="Test User"  formControlName="propertyNo" >
+                        <mat-error *ngIf="propertyForm.get('propertyNo').invalid"> Invalid input </mat-error>
+                      </mat-form-field>
+                    <mat-form-field appearance="outline" style="width:500px"  >
+                        <mat-label>Property Category </mat-label>
+                        <mat-select  formControlName="role">
+                            <mat-option>None</mat-option>
+                            <mat-option value="FIRST_CLASS" >Fist Class</mat-option>
+                            <mat-option value="SECOND_CLASS" selected>Second Class</mat-option>
+                            <mat-option value="THIRD_CLASS">Third Class</mat-option>
+                          </mat-select>
+                        <mat-error *ngIf="propertyForm.get('propertyCat').invalid"> Invalid input </mat-error>
+                      </mat-form-field>
+
+                      <mat-form-field appearance="outline" style="width:500px"  >
+                        <mat-label>Electoral Area</mat-label>
+                        <input matInput placeholder="Ablekuma"  formControlName="electoralArea" >
+                        <mat-error *ngIf="propertyForm.get('electoralArea').invalid"> Invalid input </mat-error>
+                      </mat-form-field>
+
+                     
+                  
+                    <mat-form-field appearance="outline" style="width:500px"  >
+                        <mat-label>Rate</mat-label>
+                        <input matInput placeholder="2.1"  formControlName="password" >
+                        <mat-error *ngIf="propertyForm.get('rate').invalid"> Invalid input </mat-error>
+                      </mat-form-field>
+
+                    <mat-form-field appearance="outline" style="width:500px"  >
+                        <mat-label>Value</mat-label>
+                        <input matInput placeholder="2.1"  formControlName="rate" >
+                        <mat-error *ngIf="propertyForm.get('rate').invalid"> Invalid input </mat-error>
+                      </mat-form-field>
+
+                    <mat-form-field appearance="outline" style="width:500px"  >
+                        <mat-label>Longitude</mat-label>
+                        <input matInput placeholder="10.8234"  formControlName="longitude" >
+                        <mat-error *ngIf="propertyForm.get('longitude').invalid"> Invalid input </mat-error>
+                      </mat-form-field>
+
+                    <mat-form-field appearance="outline" style="width:500px"  >
+                        <mat-label>Latitude</mat-label>
+                        <input matInput placeholder="2.1"  formControlName="latitude" >
+                        <mat-error *ngIf="propertyForm.get('latitude').invalid"> Invalid input </mat-error>
+                      </mat-form-field>
+
+
+                      <mat-form-field appearance="outline" style="width:500px">
+                        <mat-label>Status</mat-label>
+                        <mat-select  formControlName="stat">
+                          <mat-option>None</mat-option>
+                          <mat-option value="active" >Active</mat-option>
+                          <mat-option value="inactive" >Inactive</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                      <button mat-raised-button color="primary" class="float-right mb-1" type="submit"  [disabled]="!propertyForm.valid"> <mat-icon>done</mat-icon> Save User</button>
+        
+                </form>
+            </div>
+        </div>
+
+  

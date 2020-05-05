@@ -11,6 +11,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatMenuModule} from '@angular/material/menu';
 
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatCardModule} from '@angular/material/card';
@@ -39,7 +40,8 @@ import { DeleteItemComponent} from './components/delete-item/delete-item.compone
     MatSlideToggleModule,
     MatDialogModule,
     NgxSkeletonLoaderModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatMenuModule    
     
   ],
   providers: [  
@@ -63,7 +65,8 @@ import { DeleteItemComponent} from './components/delete-item/delete-item.compone
     MatDialogModule,
     NgxSkeletonLoaderModule,
     ExcerptFilter,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatMenuModule
   ],
   entryComponents: []
 })
