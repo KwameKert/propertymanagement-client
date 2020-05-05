@@ -12,7 +12,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle'
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
-
+import {MatStepperModule} from '@angular/material/stepper';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
@@ -41,7 +41,8 @@ import { DeleteItemComponent} from './components/delete-item/delete-item.compone
     MatDialogModule,
     NgxSkeletonLoaderModule,
     MatFormFieldModule,
-    MatMenuModule    
+    MatMenuModule,
+    MatStepperModule 
     
   ],
   providers: [  
@@ -66,7 +67,8 @@ import { DeleteItemComponent} from './components/delete-item/delete-item.compone
     NgxSkeletonLoaderModule,
     ExcerptFilter,
     MatFormFieldModule,
-    MatMenuModule
+    MatMenuModule,
+    MatStepperModule
   ],
   entryComponents: []
 })

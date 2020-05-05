@@ -1,0 +1,38 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Add Property
+    </mat-card-title>
+  </mat-card-header>
+
+
+  <mat-card-content>
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+      <mat-step >
+          <ng-template matStepLabel>Property Details</ng-template>
+  
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+      
+      </mat-step>
+      <mat-step >
+      
+          <ng-template matStepLabel>Owner Details</ng-template>
+          <app-add-property></app-add-property>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </mat-card-content>
+</mat-card>

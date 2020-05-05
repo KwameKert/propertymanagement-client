@@ -50,7 +50,7 @@ export class ListAllPropertyComponent implements OnInit {
   }
 
   addProperty(){
-    this._router.navigate(['/admin/add-property'])
+    this._router.navigate(['/admin/add_property_owner'])
   }
 
 }
