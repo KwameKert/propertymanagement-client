@@ -35,9 +35,10 @@ export class AddPropertyComponent implements OnInit {
     console.log(this.propertyForm.value)
 
     this._crudService.addItem(this.propertyForm.value, "property").subscribe(data=>{
-  
+      this._toastr.success(data.message, "Success  😊", {  timeOut:2000});
     }, error=>{
 
+      this._toastr.error("Please authenticate", "Oops 🥺", {  timeOut:4000});
       console.error(error)
     })
 

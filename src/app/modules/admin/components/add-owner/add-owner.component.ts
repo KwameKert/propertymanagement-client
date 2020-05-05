@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {FormControl, FormBuilder, Validators, FormGroup} from '@angular/forms';
 import { CrudService } from 'src/app/modules/shared/service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-owner',
@@ -13,7 +14,7 @@ export class AddOwnerComponent implements OnInit {
   role: any = '';
   @Output() newUser: EventEmitter<boolean> = new EventEmitter();
 
-  constructor(private _fb: FormBuilder, private _crudService: CrudService) { }
+  constructor(private _fb: FormBuilder, private _crudService: CrudService, private _toastr: ToastrService) { }
 
   ngOnInit(): void {
     
@@ -34,12 +35,12 @@ export class AddOwnerComponent implements OnInit {
     console.log(this.userForm.value)
 
     this._crudService.addItem(this.userForm.value, "user").subscribe(data=>{
-      //this.userForm.reset();
+      this._toastr.success(data.message, "Success  😊", {  timeOut:2000});
 
       this.newUser.emit(true)
     }, error=>{
-
       console.error(error)
+      this._toastr.error("Please authenticate", "Oops 🥺", {  timeOut:4000});
     })
 
 
