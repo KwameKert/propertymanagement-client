@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CrudService } from 'src/app/modules/shared/service';
 import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-list-all-property',
@@ -35,7 +36,7 @@ export class ListAllPropertyComponent implements OnInit {
     this._crudService.fetchAll("property").subscribe(data=>{
       
     
-      this.dataSource = data.data;
+      this.dataSource =  new MatTableDataSource(data.data);
       this.dataSource.paginator = this.paginator;
       this.isLoading = false;
     }, error=>{

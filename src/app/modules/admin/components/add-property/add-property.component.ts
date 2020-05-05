@@ -12,6 +12,8 @@ export class AddPropertyComponent implements OnInit {
 
   @Input() ownerId: number;
 
+  @Output() newProperty: EventEmitter<any> = new EventEmitter();
+
   propertyForm: FormGroup ;
 
   constructor(private _fb: FormBuilder, private _crudService: CrudService, private _toastr: ToastrService) { }
@@ -32,7 +34,7 @@ export class AddPropertyComponent implements OnInit {
       value:  new FormControl('', Validators.required),
       longitude:  new FormControl('', Validators.required),
       latitude:  new FormControl('', Validators.required),
-      owner: new FormControl('', Validators.required)
+      userId: new FormControl('', Validators.required)
     })
   }
 
@@ -44,6 +46,7 @@ export class AddPropertyComponent implements OnInit {
     this._crudService.addItem(this.propertyForm.value, "property").subscribe(data=>{
       this._toastr.success(data.message, "Success  😊", {  timeOut:2000});
       this.propertyForm.reset();
+      this.newProperty.emit(true)
     }, error=>{
 
       this._toastr.error("An error occured", "Oops 🥺", {  timeOut:4000});
@@ -58,7 +61,9 @@ export class AddPropertyComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges) {
     this.loadForm();
     this.propertyForm.patchValue({
-      owner: changes.ownerId.currentValue
+      userId: changes.ownerId.currentValue
     })
+
+    console.log(this.propertyForm.value)
   }
 }

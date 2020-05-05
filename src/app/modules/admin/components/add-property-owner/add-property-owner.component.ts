@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-property-owner',
@@ -15,7 +16,7 @@ export class AddPropertyOwnerComponent implements OnInit {
 
   @ViewChild('stepper') stepper: MatStepper;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder, private _router: Router) {}
 
   ngOnInit() {
   
@@ -29,5 +30,13 @@ export class AddPropertyOwnerComponent implements OnInit {
    //console.log(event)
   }
 
+  propertyAdded(event: any){
+    this.stepper.selected.completed = true;
+    this.stepper.next()
+  }
+
+  resetForm(){
+      this._router.navigate(['/admin/add_property_owner'])
+  }
 
 }
