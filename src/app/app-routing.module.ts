@@ -16,10 +16,10 @@ const routes: Routes= [
 },
 
  {
-   path:'', 
+   path:'admin', 
    component: AdminLayoutComponent,
-   loadChildren: () => import('./modules/dashboard/dashboard.module')
-                      .then(m => m.DashboardModule),
+   loadChildren: () => import('./modules/admin/admin.module')
+                      .then(m => m.AdminModule),
    canActivate:[AuthGuard]                    
  },
  {

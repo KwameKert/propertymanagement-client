@@ -10,10 +10,10 @@ export class AdminLayoutComponent implements OnInit {
   sideBarOpen = true;
 
   links: Array<object> = [
-    {name: 'dashboard',url: '/admin-dashboard', icon: 'home'},
+    {name: 'dashboard',url: '/admin/dashboard', icon: 'home'},
     {name: 'Property Owner', url: '/user/list_owner',  icon: 'supervised_user_circle'},
-    {name: 'Property', url: '/events/list', icon: 'widgets'},
-    {name: 'user', url: '/user/list_user', icon: 'account_box'},
+    {name: 'Property', url: '/admin/list_property', icon: 'widgets'},
+    {name: 'user', url: '/admin/list_user', icon: 'account_box'},
     {name: 'leader', url: '/leaders/list',icon: 'supervised_user_circle'},
   ]
     

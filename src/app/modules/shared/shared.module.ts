@@ -10,6 +10,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'
 import {MatIconModule} from '@angular/material/icon';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
@@ -37,6 +39,7 @@ import { DeleteItemComponent} from './components/delete-item/delete-item.compone
     MatSlideToggleModule,
     MatDialogModule,
     NgxSkeletonLoaderModule,
+    MatFormFieldModule
     
   ],
   providers: [  
@@ -59,7 +62,8 @@ import { DeleteItemComponent} from './components/delete-item/delete-item.compone
     MatSlideToggleModule,
     MatDialogModule,
     NgxSkeletonLoaderModule,
-    ExcerptFilter
+    ExcerptFilter,
+    MatFormFieldModule
   ],
   entryComponents: []
 })

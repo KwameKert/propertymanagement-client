@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AdminComponent } from  './components/admin/admin.component';
+//import { AdminComponent } from  '../admin/components/admin/admin.component';
 import { CollectorComponent } from './components/collector/collector.component';
 import { OwnerComponent } from './components/owner/owner.component';
 
 
 const routes: Routes = [ 
 
-  {path: 'admin-dashboard', component:  AdminComponent},
+ // {path: 'admin-dashboard', component:  AdminComponent},
 
   {path: 'collector-dashboard', component: CollectorComponent},
 

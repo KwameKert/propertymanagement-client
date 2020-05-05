@@ -1,11 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MapInfoWindow, MapMarker} from '@angular/google-maps';
+import { MapInfoWindow, MapMarker } from '@angular/google-maps';
+
+
+
 @Component({
   selector: 'app-list-all-property',
   templateUrl: './list-all-property.component.html',
   styleUrls: ['./list-all-property.component.css']
 })
 export class ListAllPropertyComponent implements OnInit {
+
 
   @ViewChild(MapInfoWindow, {static: false}) infoWindow: MapInfoWindow;
 
