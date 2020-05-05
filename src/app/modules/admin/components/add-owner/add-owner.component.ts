@@ -36,7 +36,7 @@ export class AddOwnerComponent implements OnInit {
 
     this._crudService.addItem(this.userForm.value, "user").subscribe(data=>{
       this._toastr.success(data.message, "Success  😊", {  timeOut:2000});
-
+      this.userForm.reset();
       this.newUser.emit(true)
     }, error=>{
       console.error(error)

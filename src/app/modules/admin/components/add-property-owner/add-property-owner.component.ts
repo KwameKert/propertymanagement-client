@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 
@@ -9,12 +9,25 @@ import { MatStepper } from '@angular/material/stepper';
 })
 export class AddPropertyOwnerComponent implements OnInit {
 
-  isLinear = false;
+  isLinear = true;
+  ownerId: number = 1;
+
+
+  @ViewChild('stepper') stepper: MatStepper;
 
   constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit() {
   
   }
+
+
+  selectOwner(id){
+    this.ownerId = id;
+    this.stepper.selected.completed = true;
+    this.stepper.next()
+   //console.log(event)
+  }
+
 
 }

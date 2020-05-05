@@ -35,7 +35,7 @@ export class AddUserComponent implements OnInit {
     console.log(this.userForm.value)
 
     this._crudService.addItem(this.userForm.value, "user").subscribe(data=>{
-      //this.userForm.reset();
+     this.userForm.reset();
       this._toastr.success(data.message, "Success  😊", {  timeOut:2000});
 
       this.newUser.emit(true)

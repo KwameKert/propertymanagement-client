@@ -7,23 +7,22 @@
 
 
   <mat-card-content>
-    <mat-horizontal-stepper [linear]="isLinear" #stepper>
-      <mat-step >
-          <ng-template matStepLabel>Property Details</ng-template>
-  
-          <div>
-            <button mat-button matStepperNext>Next</button>
-          </div>
+    <mat-horizontal-stepper linear  #stepper>
+      <mat-step completed="false">
+          <ng-template matStepLabel>Owner Details</ng-template>
+            <app-search-owner (ownerSelected)="selectOwner($event)"></app-search-owner>
+        
       
       </mat-step>
-      <mat-step >
+      <mat-step completed="false">
       
-          <ng-template matStepLabel>Owner Details</ng-template>
-          <app-add-property></app-add-property>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
-          </div>
+          <ng-template matStepLabel>Property Details</ng-template>
+
+          
+
+            <app-add-property [ownerId]="ownerId "></app-add-property>
+       
+
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Done</ng-template>
