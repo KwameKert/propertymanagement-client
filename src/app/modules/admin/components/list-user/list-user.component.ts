@@ -1,6 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CrudService } from 'src/app/modules/shared/service';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { DeleteItemComponent } from 'src/app/modules/shared/components/delete-item/delete-item.component';
 
 
 @Component({
@@ -31,7 +36,7 @@ export class ListUserComponent implements OnInit {
     {def: 'actions', slideShow: false}
   ];
 
-  constructor(private _crudService: CrudService) { }
+  constructor(private _crudService: CrudService, public dialog: MatDialog, private _snackBar: MatSnackBar, private _router: Router, private _toastr: ToastrService) { }
 
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -90,5 +95,39 @@ export class ListUserComponent implements OnInit {
   }
 
 
+  deleteUser(id: Number){
+    let data = {
+      module: 'user',
+      id
+    }
+    const dialogRef = this.dialog.open(DeleteItemComponent, {
+      width: '550px',
+      height: '180px',
+      data: data
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result.event){
+        this._snackBar.open("User Deleted 🙂  ", "", {
+          duration: 2000,
+        });
+       this.loadAllUsers()
+
+      }else{
+
+        this._toastr.error("Oops an error. 🥺","",{
+          timeOut:2000
+        })
+      }
+    });
+  }
+
+  viewUser(id){
+
+  }
+
+  editUser(id){
+    
+  }
   
 }
