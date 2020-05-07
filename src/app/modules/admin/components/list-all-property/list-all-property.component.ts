@@ -3,6 +3,10 @@ import { CrudService } from 'src/app/modules/shared/service';
 import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { DeleteItemComponent } from 'src/app/modules/shared/components/delete-item/delete-item.component';
 
 @Component({
   selector: 'app-list-all-property',
@@ -20,7 +24,7 @@ export class ListAllPropertyComponent implements OnInit {
   displayedColumns: Array<string> = ['propNo', 'owner', 'propCat', 'value', 'actions'] ;
   
 
-  constructor(private _crudService: CrudService, private _router: Router) { }
+  constructor(private _crudService: CrudService, public dialog: MatDialog, private _snackBar: MatSnackBar, private _router: Router, private _toastr: ToastrService) { }
 
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -53,6 +57,43 @@ export class ListAllPropertyComponent implements OnInit {
   addProperty(){
     this._router.navigate(['/admin/add_property_owner'])
     
+  }
+
+  viewProperty(id: Number){
+
+  }
+
+
+  editProperty(id: Number){
+
+  }
+
+
+  deleteProperty(id: Number){
+    let data = {
+      module: 'property',
+      id
+    }
+    const dialogRef = this.dialog.open(DeleteItemComponent, {
+      width: '550px',
+      height: '180px',
+      data: data
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result.event){
+        this._snackBar.open("Property Deleted 🙂  ", "", {
+          duration: 2000,
+        });
+       this.loadAllProperties()
+
+      }else{
+
+        this._toastr.error("Oops an error. 🥺","",{
+          timeOut:2000
+        })
+      }
+    });
   }
 
 }
