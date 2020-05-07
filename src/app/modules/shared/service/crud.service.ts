@@ -48,7 +48,7 @@ export class CrudService {
   }
 
 
-  public updateItem({data, module}){
+  public updateItem({data, module}): Observable<any>{
     return this._httpClient.put(`${this._baseUrl}/${module}/`, data);
   }
 

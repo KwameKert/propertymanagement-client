@@ -66,6 +66,8 @@ export class ListAllPropertyComponent implements OnInit {
 
   editProperty(id: Number){
 
+    this._router.navigate([`/admin/edit_property/${id}`])
+
   }
 
 

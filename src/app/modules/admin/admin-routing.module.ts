@@ -6,6 +6,7 @@ import { ListUserComponent } from './components/list-user/list-user.component';
 import { PropertyLocationsComponent } from './components/property-locations/property-locations.component';
 import { AddPropertyOwnerComponent } from './components/add-property-owner/add-property-owner.component';
 import { ListOwnerComponent } from './components/list-owner/list-owner.component';
+import { EditPropertyComponent } from './components/edit-property/edit-property.component';
 
 const routes: Routes  = [
 
@@ -14,7 +15,8 @@ const routes: Routes  = [
     {path: 'list_user', component: ListUserComponent},
     {path: 'property_location', component: PropertyLocationsComponent},
     {path: 'add_property_owner', component: AddPropertyOwnerComponent},
-    {path: 'list_owner', component:ListOwnerComponent}
+    {path: 'list_owner', component:ListOwnerComponent},
+    {path: 'edit_property/:id', component:EditPropertyComponent}
 
 ];
 
