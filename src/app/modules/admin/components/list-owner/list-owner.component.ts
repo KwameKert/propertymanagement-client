@@ -1,6 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CrudService } from 'src/app/modules/shared/service';
 import { MatPaginator } from '@angular/material/paginator';
+import { DeleteItemComponent } from 'src/app/modules/shared/components/delete-item/delete-item.component';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -31,7 +37,7 @@ export class ListOwnerComponent implements OnInit {
     {def: 'actions', slideShow: false}
   ];
 
-  constructor(private _crudService: CrudService) { }
+  constructor(private _crudService: CrudService, public dialog: MatDialog, private _snackBar: MatSnackBar, private _router: Router, private _toastr: ToastrService) { }
 
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -45,9 +51,8 @@ export class ListOwnerComponent implements OnInit {
 
 
   loadAllUsers(){
+    this.isLoading = true;
     this._crudService.fetchAll("user/owners").subscribe(data=>{
-      
-    
       this.dataSource = data.data;
       this.dataSource.paginator = this.paginator;
       this.isLoading = false;
@@ -87,6 +92,45 @@ export class ListOwnerComponent implements OnInit {
 
   newUserCreated(event: any){
     this.loadAllUsers();
+  }
+
+
+  viewOwner(id){
+
+  }
+
+  editOwner(id){
+
+  }
+
+  
+
+
+  deleteOwner(id: Number){
+    let data = {
+      module: 'user',
+      id
+    }
+    const dialogRef = this.dialog.open(DeleteItemComponent, {
+      width: '550px',
+      height: '180px',
+      data: data
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result.event){
+        this._snackBar.open("Owner Deleted 🙂  ", "", {
+          duration: 2000,
+        });
+       this.loadAllUsers()
+
+      }else{
+
+        this._toastr.error("Oops an error. 🥺","",{
+          timeOut:2000
+        })
+      }
+    });
   }
 
 

@@ -72,15 +72,15 @@
                         <mat-icon>more_vert</mat-icon>
                       </button>
                       <mat-menu #belowMenu="matMenu" yPosition="below">
-                        <button mat-menu-item>
+                        <button mat-menu-item (click)="viewOwner(element.id)">
                           <mat-icon>visibility</mat-icon>
                           <span>View Owner </span>
                         </button>
-                        <button mat-menu-item disabled>
+                        <button mat-menu-item (click)="editOwner(element.id)" >
                           <mat-icon>create</mat-icon>
                           <span>Update Owner</span>
                         </button>
-                        <button mat-menu-item>
+                        <button mat-menu-item (click)="deleteOwner(element.id)">
                           <mat-icon>clear</mat-icon>
                           <span>Delete Owner</span>
                         </button>
