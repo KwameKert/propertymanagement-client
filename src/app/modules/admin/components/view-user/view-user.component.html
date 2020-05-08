@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>View User</h1>
+<div mat-dialog-content class="container">
+    <div  class="row justify-content-center">
+
+        <div class="col-md-12">
+
+            <p class="lead">Full Name: {{data.fullName}}</p>
+            <p class="lead">Username: {{data.username}}</p>
+            <p class="lead">Email: {{data.email}}</p>
+            <p class="lead">Role: {{data.roles[0].role}}</p>
+            <p class="lead">Status: {{data.stat}}</p>
+        </div>
+ 
+    
+    </div>
+    
+</div>
+<div mat-dialog-actions class="float-right">
+    <button mat-button (click)="close()" class="float-right">Close</button>
+    
+  </div>

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DeleteItemComponent } from 'src/app/modules/shared/components/delete-item/delete-item.component';
+import { ViewUserComponent } from '../view-user/view-user.component';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class ListUserComponent implements OnInit {
   slide: boolean = false;
 
   isAddUser: boolean = false;
+  isEditUser: boolean = false
 
   displayedColumns: any ;
   listUserColumn: string = 'col-md-12';
@@ -88,6 +90,9 @@ export class ListUserComponent implements OnInit {
     this.isAddUser = false;
   }
 
+  editUSer(){
+
+  }
 
 
   newUserCreated(event: any){
@@ -122,7 +127,20 @@ export class ListUserComponent implements OnInit {
     });
   }
 
-  viewUser(id){
+  viewUser(user){
+
+    const dialogRef = this.dialog.open(ViewUserComponent, {
+      width: '600px',
+      height: '370px',
+      data: user
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    }, error=>{
+      this._toastr.error("Oops an error. 🥺","",{
+        timeOut:2000
+      })
+    });
 
   }
 
