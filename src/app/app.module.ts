@@ -20,6 +20,7 @@ import { CollectorLayoutComponent } from './layouts/collector-layout/collector-l
 import { OwnerLayoutComponent } from './layouts/owner-layout/owner-layout.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { AuthInterceptor, TokenInterceptor } from './interceptors';
 
 @NgModule({
@@ -48,6 +49,7 @@ import { AuthInterceptor, TokenInterceptor } from './interceptors';
     MatListModule,
     MatSidenavModule,  
     HttpClientModule,
+    NgxUiLoaderModule,
     ToastrModule.forRoot(), 
     
   

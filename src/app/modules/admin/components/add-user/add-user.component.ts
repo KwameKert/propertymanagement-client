@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {FormControl, FormBuilder, Validators, FormGroup} from '@angular/forms';
 import { CrudService } from 'src/app/modules/shared/service';
 import { ToastrService } from 'ngx-toastr';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-add-user',
@@ -14,7 +15,7 @@ export class AddUserComponent implements OnInit {
   role: any = '';
   @Output() newUser: EventEmitter<boolean> = new EventEmitter();
 
-  constructor(private _fb: FormBuilder, private _crudService: CrudService, private _toastr: ToastrService) { }
+  constructor(private _fb: FormBuilder, private _crudService: CrudService, private _toastr: ToastrService,  private ngxService: NgxUiLoaderService,) { }
 
   ngOnInit(): void {
     
@@ -32,8 +33,8 @@ export class AddUserComponent implements OnInit {
   addUser(){
 
 
-    console.log(this.userForm.value)
-
+    
+this.ngxService.start()
     this._crudService.addItem(this.userForm.value, "user").subscribe(data=>{
      this.userForm.reset();
       this._toastr.success(data.message, "Success  😊", {  timeOut:2000});
@@ -45,6 +46,7 @@ export class AddUserComponent implements OnInit {
       console.error(error)
     })
 
+    this.ngxService.stop()
 
 
 

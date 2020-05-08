@@ -3,6 +3,7 @@ import {FormControl, FormBuilder, Validators, FormGroup} from '@angular/forms';
 import { CrudService } from 'src/app/modules/shared/service';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-edit-property',
@@ -15,7 +16,7 @@ export class EditPropertyComponent implements OnInit {
   propertyForm: FormGroup ;
   propertyId: any;
 
-  constructor(private _fb: FormBuilder, private _crudService: CrudService, private _toastr: ToastrService, private _route: ActivatedRoute, private _router: Router) { }
+  constructor(private _fb: FormBuilder, private _crudService: CrudService, private _toastr: ToastrService, private _route: ActivatedRoute, private _router: Router,  private ngxService: NgxUiLoaderService,) { }
 
   ngOnInit(): void {
     this.propertyId = this._route.snapshot.paramMap.get('id');
@@ -42,7 +43,7 @@ export class EditPropertyComponent implements OnInit {
   saveProperty(){
 
 
-    console.log(this.propertyForm.value)
+    this.ngxService.start()
 
     this._crudService.updateItem({data:this.propertyForm.value, module:"property"}).subscribe(data=>{
       if(data.status != 200){
@@ -57,6 +58,8 @@ export class EditPropertyComponent implements OnInit {
       this._toastr.error("An error occured", "Oops 🥺", {  timeOut:4000});
       console.error(error)
     })
+
+    this.ngxService.stop()
 
   }
 

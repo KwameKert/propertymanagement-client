@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input, SimpleChanges } from '@
 import {FormControl, FormBuilder, Validators, FormGroup} from '@angular/forms';
 import { CrudService } from 'src/app/modules/shared/service';
 import { ToastrService } from 'ngx-toastr';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-add-property',
@@ -16,7 +17,7 @@ export class AddPropertyComponent implements OnInit {
 
   propertyForm: FormGroup ;
 
-  constructor(private _fb: FormBuilder, private _crudService: CrudService, private _toastr: ToastrService) { }
+  constructor(private _fb: FormBuilder, private _crudService: CrudService, private _toastr: ToastrService,  private ngxService: NgxUiLoaderService,) { }
 
   ngOnInit(): void {
 
@@ -41,7 +42,7 @@ export class AddPropertyComponent implements OnInit {
   saveProperty(){
 
 
-    console.log(this.propertyForm.value)
+    this.ngxService.start()
 
     this._crudService.addItem(this.propertyForm.value, "property").subscribe(data=>{
       this._toastr.success(data.message, "Success  😊", {  timeOut:2000});
@@ -53,6 +54,7 @@ export class AddPropertyComponent implements OnInit {
       console.error(error)
     })
 
+    this.ngxService.stop()
 
 
 
