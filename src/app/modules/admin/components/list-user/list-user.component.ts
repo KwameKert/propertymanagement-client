@@ -59,7 +59,9 @@ export class ListUserComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.isLoading = false;
     }, error=>{
-
+      this._toastr.error("Oops an error. 🥺","",{
+        timeOut:2000
+      })
     })
   }
 

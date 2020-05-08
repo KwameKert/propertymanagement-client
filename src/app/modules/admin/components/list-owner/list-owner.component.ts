@@ -96,6 +96,7 @@ export class ListOwnerComponent implements OnInit {
 
 
   viewOwner(id){
+    this._router.navigate([`/admin/view_owner/${id}`])
 
   }
 

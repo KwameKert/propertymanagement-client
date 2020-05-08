@@ -16,12 +16,13 @@ import { SearchOwnerComponent } from './components/search-owner/search-owner.com
 import { EditPropertyComponent } from './components/edit-property/edit-property.component';
 import { ViewPropertyComponent } from './components/view-property/view-property.component';
 import { ViewUserComponent } from './components/view-user/view-user.component';
+import { ViewOwnerComponent } from './components/view-owner/view-owner.component';
 
 
 
 
 @NgModule({
-  declarations: [AdminComponent, ListAllPropertyComponent, AddUserComponent, ListUserComponent, PropertyLocationsComponent, AddPropertyComponent, AddPropertyOwnerComponent, AddOwnerComponent, ListOwnerComponent, SearchOwnerComponent, EditPropertyComponent, ViewPropertyComponent, ViewUserComponent, ],
+  declarations: [AdminComponent, ListAllPropertyComponent, AddUserComponent, ListUserComponent, PropertyLocationsComponent, AddPropertyComponent, AddPropertyOwnerComponent, AddOwnerComponent, ListOwnerComponent, SearchOwnerComponent, EditPropertyComponent, ViewPropertyComponent, ViewUserComponent, ViewOwnerComponent, ],
   imports: [
     CommonModule,
     SharedModule,

@@ -1,0 +1,104 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            Owner | Property Details
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <hr>
+        <div class="row">
+            <div class="col-4 " *ngIf="owner">
+                <p>Full Name: {{owner.fullName}}</p>
+                <p>Username: {{owner.username}}</p>
+                <p>Email: {{owner.email}}</p>
+                <p>Status: {{owner.stat}}</p>
+                <p>Added on: {{owner.createdAt | date: 'fullName'}}</p>
+            </div>
+
+            <div class="col-8 ">
+                <div class="row" style="width:100%" >
+
+                    <div class="col-md-12" >
+                      <div *ngIf="!isLoaded; else elseBlock" >
+                        <ngx-skeleton-loader
+                        count="5"
+                        [theme]="{
+                          width: '90%',
+                          'border-radius': '0',
+                          height: '15px',
+                          'margin-bottom': '10px'
+                        }"
+                      ></ngx-skeleton-loader>
+                      </div>
+                   
+                
+                       <ng-template #elseBlock>
+                         
+                        <table mat-table [dataSource]="dataSource"  >
+                
+                          
+                          <ng-container matColumnDef="propNo">
+                            <th mat-header-cell *matHeaderCellDef> No. </th>
+                            <td mat-cell *matCellDef="let element"> {{element.propNo}} </td>
+                          </ng-container>
+                
+                            <ng-container matColumnDef="rate">
+                              <th mat-header-cell *matHeaderCellDef> Rate </th>
+                              <td mat-cell *matCellDef="let element"> {{element.rate}} </td>
+                            </ng-container>
+                        
+                          <!-- Weight Column -->
+                          <ng-container matColumnDef="propCat">
+                            <th mat-header-cell *matHeaderCellDef> Category </th>
+                            <td mat-cell *matCellDef="let element"> {{element.propCat}} </td>
+                          </ng-container>
+                        
+                          <!-- Symbol Column -->
+                          <ng-container matColumnDef="value">
+                            <th mat-header-cell *matHeaderCellDef> Value </th>
+                            <td mat-cell *matCellDef="let element">
+                             {{element.value}}
+                             </td>
+                          </ng-container>
+                        
+                          <!-- Symbol Column -->
+                          <ng-container matColumnDef="actions" style="display: none">
+                            <th mat-header-cell *matHeaderCellDef> Actions </th>
+                            <td mat-cell *matCellDef="let element"> 
+                              <button mat-button [matMenuTriggerFor]="belowMenu" aria-label="Example icon-button with a menu">
+                                <mat-icon>more_vert</mat-icon>
+                              </button>
+                              <mat-menu #belowMenu="matMenu" yPosition="below">
+                                <button mat-menu-item (click)="viewProperty(element.id)">
+                                  <mat-icon>visibility</mat-icon>
+                                  <span>View Property </span>
+                                </button>
+                                <button mat-menu-item (click)="editProperty(element.id)">
+                                  <mat-icon>create</mat-icon>
+                                  <span>Update Property</span>
+                                </button>
+                                <button mat-menu-item (click)="deleteProperty(element.id)">
+                                  <mat-icon>clear</mat-icon>
+                                  <span>Delete Property</span>
+                                </button>
+                              </mat-menu>
+                            </td>
+                          </ng-container>
+                        
+                          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                       </ng-template>
+            
+                  
+                    </div>
+            
+                 
+                  </div>
+              
+
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
