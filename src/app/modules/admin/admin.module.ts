@@ -14,12 +14,13 @@ import { AddOwnerComponent } from './components/add-owner/add-owner.component';
 import { ListOwnerComponent } from './components/list-owner/list-owner.component';
 import { SearchOwnerComponent } from './components/search-owner/search-owner.component';
 import { EditPropertyComponent } from './components/edit-property/edit-property.component';
+import { ViewPropertyComponent } from './components/view-property/view-property.component';
 
 
 
 
 @NgModule({
-  declarations: [AdminComponent, ListAllPropertyComponent, AddUserComponent, ListUserComponent, PropertyLocationsComponent, AddPropertyComponent, AddPropertyOwnerComponent, AddOwnerComponent, ListOwnerComponent, SearchOwnerComponent, EditPropertyComponent, ],
+  declarations: [AdminComponent, ListAllPropertyComponent, AddUserComponent, ListUserComponent, PropertyLocationsComponent, AddPropertyComponent, AddPropertyOwnerComponent, AddOwnerComponent, ListOwnerComponent, SearchOwnerComponent, EditPropertyComponent, ViewPropertyComponent, ],
   imports: [
     CommonModule,
     SharedModule,

@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { CrudService } from 'src/app/modules/shared/service';
-import { MAR } from '@angular/material/core';
 
 @Component({
   selector: 'app-property-locations',
@@ -20,6 +19,7 @@ export class PropertyLocationsComponent implements OnInit {
   zoom = 10;
   display?: google.maps.LatLngLiteral;
   infoContent = 'Hello'
+  isLoading: boolean = true;
 
   constructor(private _crudService: CrudService) { }
 
@@ -39,6 +39,7 @@ export class PropertyLocationsComponent implements OnInit {
           this.addMarker(item);
           //arr.push({lat: item.latitude, lng:item.longitude})
       }
+      this.isLoading = false;
 
       
     }, error=>{

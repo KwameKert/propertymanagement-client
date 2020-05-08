@@ -1,4 +1,10 @@
 <mat-card style="margin-bottom:100px">
+    <div class="row">
+        <div class="col-7">
+
+        </div>
+    </div>
+    <hr>
     <google-map height="600px"
     width="1020px"
     [center]="center"
@@ -7,13 +13,14 @@
       *ngFor="let marker of markers"
       [position]="marker.position"
       [options]="marker.options"
-      (mapClick)="openInfoWindow(markerElem, marker.info)"></map-marker>
+      (mapClick)="openInfoWindow(markerElem)"></map-marker>
       <map-info-window >
         <div *ngIf="!isLoading">
-            <!-- <p><b>PropertyNo: </b>{{infoContent.propNo}}</p>
+            
+            <p><b>PropertyNo: </b>{{infoContent.propNo}}</p>
             <p><b>Category: </b>{{infoContent.propCat}}</p>
             <p><b>Value: </b>{{infoContent.value}}</p>
-            <p><b>Rate: </b>{{infoContent.rate}}</p> -->
+            <p><b>Rate: </b>{{infoContent.rate}}</p>
         </div>  
        </map-info-window>
 

@@ -7,6 +7,7 @@ import { PropertyLocationsComponent } from './components/property-locations/prop
 import { AddPropertyOwnerComponent } from './components/add-property-owner/add-property-owner.component';
 import { ListOwnerComponent } from './components/list-owner/list-owner.component';
 import { EditPropertyComponent } from './components/edit-property/edit-property.component';
+import { ViewPropertyComponent } from './components/view-property/view-property.component';
 
 const routes: Routes  = [
 
@@ -16,7 +17,8 @@ const routes: Routes  = [
     {path: 'property_location', component: PropertyLocationsComponent},
     {path: 'add_property_owner', component: AddPropertyOwnerComponent},
     {path: 'list_owner', component:ListOwnerComponent},
-    {path: 'edit_property/:id', component:EditPropertyComponent}
+    {path: 'edit_property/:id', component:EditPropertyComponent},
+    {path: 'view_property/:id', component:ViewPropertyComponent}
 
 ];
 

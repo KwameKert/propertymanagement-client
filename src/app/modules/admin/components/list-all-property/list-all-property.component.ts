@@ -61,6 +61,7 @@ export class ListAllPropertyComponent implements OnInit {
 
   viewProperty(id: Number){
 
+    this._router.navigate([`/admin/view_property/${id}`])
   }
 
 
