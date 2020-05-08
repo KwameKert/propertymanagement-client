@@ -19,7 +19,7 @@ export class ViewOwnerComponent implements OnInit {
   isLoaded: boolean = false;
   dataSource: any;
 
-  displayedColumns: Array<string> = ['propNo',  'propCat', 'value', 'actions'] ;
+  displayedColumns: Array<string> = ['propNo',  'propCat', 'value', 'status','actions'] ;
 
   constructor(private _crudService: CrudService,private _snackBar: MatSnackBar, private _route: ActivatedRoute,  private _toastr: ToastrService, public dialog: MatDialog,  private _router: Router) { }
 
