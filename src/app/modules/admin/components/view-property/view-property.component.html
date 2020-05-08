@@ -1,29 +1,43 @@
 <mat-card style="margin-bottom:100px">
+    <mat-card-header>
+        <mat-card-title>
+            Property  Details
+        </mat-card-title>
+    </mat-card-header>
+    <hr>
     <div class="row">
-        <div class="col-7">
+        <div class="col-3">
+             <p class="font-weight-light">PropertyNo: {{property?.propNo}}</p>
+            <p class="font-weight-light">Owner: {{property?.owner}}</p>
+            <p class="font-weight-light">Category: {{property?.propCat}}</p>
+            <p class="font-weight-light">Value: {{property?.value}}</p>
+            <p class="font-weight-light">Rate: {{property?.rate}}</p>
+        </div>
 
+        <div class="col-9">
+            <google-map height="600px" 
+            width="750px"
+            [center]="center"
+            [zoom]="zoom">
+        <map-marker #markerElem 
+              *ngFor="let marker of markers"
+              [position]="marker.position"
+              [options]="marker.options"
+              (mapClick)="openInfoWindow(markerElem, marker.info)"></map-marker>
+              <map-info-window  >
+                
+                    
+                    <p><b>PropertyNo: </b>{{infoContent?.propNo}}</p>
+                    <p><b>Category: </b>{{infoContent?.propCat}}</p>
+                    <p><b>Value: </b>{{infoContent?.value}}</p>
+                    <p><b>Rate: </b>{{infoContent?.rate}}</p>
+               
+               </map-info-window>
+        
+              
+        </google-map>
         </div>
     </div>
     <hr>
-    <google-map height="600px"
-    width="1020px"
-    [center]="center"
-    [zoom]="zoom">
-<map-marker #markerElem
-      *ngFor="let marker of markers"
-      [position]="marker.position"
-      [options]="marker.options"
-      (mapClick)="openInfoWindow(markerElem)"></map-marker>
-      <map-info-window >
-        <div *ngIf="!isLoading">
-            
-            <p><b>PropertyNo: </b>{{infoContent.propNo}}</p>
-            <p><b>Category: </b>{{infoContent.propCat}}</p>
-            <p><b>Value: </b>{{infoContent.value}}</p>
-            <p><b>Rate: </b>{{infoContent.rate}}</p>
-        </div>  
-       </map-info-window>
-
-      
-</google-map>
+ 
 </mat-card>

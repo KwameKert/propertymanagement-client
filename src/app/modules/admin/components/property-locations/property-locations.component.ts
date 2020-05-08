@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { CrudService } from 'src/app/modules/shared/service';
 
@@ -7,7 +7,7 @@ import { CrudService } from 'src/app/modules/shared/service';
   templateUrl: './property-locations.component.html',
   styleUrls: ['./property-locations.component.css']
 })
-export class PropertyLocationsComponent implements OnInit {
+export class PropertyLocationsComponent implements OnInit, OnDestroy {
 
  
   @ViewChild(MapInfoWindow, {static: false}) infoWindow: MapInfoWindow;
@@ -18,12 +18,13 @@ export class PropertyLocationsComponent implements OnInit {
   markerPositions: google.maps.LatLngLiteral[] ;
   zoom = 10;
   display?: google.maps.LatLngLiteral;
-  infoContent = 'Hello'
-  isLoading: boolean = true;
+  infoContent : any;
+  isLoaded: boolean = false;
 
   constructor(private _crudService: CrudService) { }
 
   ngOnInit(): void {
+    console.log("Im called")
     this.loadProperties();
     
   }
@@ -39,14 +40,13 @@ export class PropertyLocationsComponent implements OnInit {
           this.addMarker(item);
           //arr.push({lat: item.latitude, lng:item.longitude})
       }
-      this.isLoading = false;
+      this.isLoaded = true;
 
       
     }, error=>{
 
     })
 
-    console.log(this.markers)
   }
 
 
@@ -70,7 +70,6 @@ export class PropertyLocationsComponent implements OnInit {
       options: {
       },
     })
-    console.log(this.markers)
   }
  
 
@@ -80,6 +79,11 @@ export class PropertyLocationsComponent implements OnInit {
     this.infoWindow.open(marker);
   }
 
+  ngOnDestroy(){
+    console.log("Im destroyed")
+    this.markers = [];
+  }
+  
 
 
 }

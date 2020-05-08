@@ -9,11 +9,11 @@
       [options]="marker.options"
       (mapClick)="openInfoWindow(markerElem, marker.info)"></map-marker>
       <map-info-window >
-        <div *ngIf="!isLoading">
-            <!-- <p><b>PropertyNo: </b>{{infoContent.propNo}}</p>
+        <div *ngIf="!isLoaded">
+            <p><b>PropertyNo: </b>{{infoContent.propNo}}</p>
             <p><b>Category: </b>{{infoContent.propCat}}</p>
             <p><b>Value: </b>{{infoContent.value}}</p>
-            <p><b>Rate: </b>{{infoContent.rate}}</p> -->
+            <p><b>Rate: </b>{{infoContent.rate}}</p> 
         </div>  
        </map-info-window>
 
