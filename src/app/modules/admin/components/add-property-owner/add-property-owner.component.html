@@ -7,7 +7,9 @@
 
 
   <mat-card-content>
-    <mat-horizontal-stepper linear  #stepper>
+    <button mat-raised-button color="primary" class="float-right " style="margin-top: -25px" (click)="listProperty()"  > <mat-icon>list</mat-icon> List Property</button> 
+
+    <mat-horizontal-stepper linear  #stepper style="width: 100%;">
       <mat-step completed="false">
           <ng-template matStepLabel>Owner Details</ng-template>
             <app-search-owner (ownerSelected)="selectOwner($event)"></app-search-owner>

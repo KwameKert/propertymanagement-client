@@ -39,4 +39,8 @@ export class AddPropertyOwnerComponent implements OnInit {
       this._router.navigate(['/admin/add_property_owner'])
   }
 
+  listProperty(){
+    this._router.navigate(['/admin/list_property'])
+  }
+
 }

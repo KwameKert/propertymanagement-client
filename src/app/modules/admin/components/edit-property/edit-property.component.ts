@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input, SimpleChanges } from '@
 import {FormControl, FormBuilder, Validators, FormGroup} from '@angular/forms';
 import { CrudService } from 'src/app/modules/shared/service';
 import { ToastrService } from 'ngx-toastr';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-property',
@@ -15,7 +15,7 @@ export class EditPropertyComponent implements OnInit {
   propertyForm: FormGroup ;
   propertyId: any;
 
-  constructor(private _fb: FormBuilder, private _crudService: CrudService, private _toastr: ToastrService, private _route: ActivatedRoute) { }
+  constructor(private _fb: FormBuilder, private _crudService: CrudService, private _toastr: ToastrService, private _route: ActivatedRoute, private _router: Router) { }
 
   ngOnInit(): void {
     this.propertyId = this._route.snapshot.paramMap.get('id');
@@ -84,5 +84,9 @@ export class EditPropertyComponent implements OnInit {
     })
   }
 
+
+  listProperty(){
+    this._router.navigate(['/admin/list_property'])
+  }
 
 }
