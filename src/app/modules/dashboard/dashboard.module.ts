@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-//import { AdminComponent } from '../admin/components/admin/admin.component';
 import { CollectorComponent } from './components/collector/collector.component';
 import { OwnerComponent } from './components/owner/owner.component';
-import { DashboardRoutingModule } from './dashboard-routing';
 import {GoogleMapsModule} from '@angular/google-maps';
 import { MatCardModule } from '@angular/material/card';
 
@@ -12,9 +10,12 @@ import { MatCardModule } from '@angular/material/card';
   declarations: [CollectorComponent, OwnerComponent],
   imports: [
     CommonModule,
-    DashboardRoutingModule,
     GoogleMapsModule,
     MatCardModule
+  ],
+  exports: [
+    CollectorComponent, 
+    OwnerComponent
   ]
 })
 export class DashboardModule { }

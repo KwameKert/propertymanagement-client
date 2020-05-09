@@ -22,25 +22,19 @@ const routes: Routes= [
                       .then(m => m.AdminModule),
    canActivate:[AuthGuard]                    
  },
+//  {
+//    path:'', 
+//    component: CollectorLayoutComponent,
+//    loadChildren: () => import('./modules/dashboard/dashboard.module')
+//                       .then(m => m.DashboardModule),
+//    canActivate:[AuthGuard]                     
+//  },
+
  {
-   path:'', 
-   component: CollectorLayoutComponent,
-   loadChildren: () => import('./modules/dashboard/dashboard.module')
-                      .then(m => m.DashboardModule),
-   canActivate:[AuthGuard]                     
- },
- {
-   path:'user', 
-   component: AdminLayoutComponent,
-   loadChildren: () => import('./modules/user/user.module')
-                      .then(m => m.UserModule),
-   canActivate:[AuthGuard]                     
- },
- {
-   path:'', 
+   path:'owner', 
    component: OwnerLayoutComponent,
-   loadChildren: () => import('./modules/dashboard/dashboard.module')
-                      .then(m => m.DashboardModule),
+   loadChildren: () => import('./modules/property-owner/property-owner.module')
+                      .then(m => m.PropertyOwnerModule),
   canActivate:[AuthGuard]  
                     },
 
