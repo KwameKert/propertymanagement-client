@@ -11,7 +11,7 @@ export class OwnerLayoutComponent implements OnInit {
 
   links: Array<object> = [
     {name: 'dashboard',url: '/owner/dashboard', icon: 'home'},
-    {name: 'payments', url: '/owner/payments',  icon: 'credit_card'}
+   {name: 'payments', url: '/owner/properties',  icon: 'widgets'}
   ]
     
 

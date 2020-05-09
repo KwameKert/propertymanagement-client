@@ -15,6 +15,7 @@ import { MatCardModule } from '@angular/material/card';
   ],
   exports: [
     CollectorComponent, 
+    GoogleMapsModule,
     OwnerComponent
   ]
 })

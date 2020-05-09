@@ -18,6 +18,7 @@
                 <div *ngFor="let link of links">
         
                     <a  mat-list-item  routerLinkActive="is-active" [routerLink]="[link.url]"  >  <mat-icon class="sidebar-icon">{{link.icon}}</mat-icon  > {{ link.name | titlecase}}</a>
+                        <mat-divider></mat-divider>
         
                 </div>
         

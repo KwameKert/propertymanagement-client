@@ -1,1 +1,77 @@
-<p>property-list works!</p>
+<mat-card class="mat-elevation-z8">
+
+    <mat-card-header>
+        <mat-card-title>All Properties</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+     
+      <div class="row" style="width:100%" >
+
+        <div class="col-md-12" >
+          <div *ngIf="isLoading; else elseBlock" >
+            <ngx-skeleton-loader
+            count="5"
+            [theme]="{
+              width: '90%',
+              'border-radius': '0',
+              height: '15px',
+              'margin-bottom': '10px'
+            }"
+          ></ngx-skeleton-loader>
+          </div>
+       
+    
+           <ng-template #elseBlock>
+            
+            <table mat-table [dataSource]="dataSource"  >
+    
+              
+              <ng-container matColumnDef="propNo">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.propNo}} </td>
+              </ng-container>
+              
+              <ng-container matColumnDef="propCat">
+                <th mat-header-cell *matHeaderCellDef> Category </th>
+                <td mat-cell *matCellDef="let element"> {{element.propCat}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="rate">
+                <th mat-header-cell *matHeaderCellDef> Rate </th>
+                <td mat-cell *matCellDef="let element"> {{element.rate}} </td>
+              </ng-container>
+            
+              <ng-container matColumnDef="value">
+                <th mat-header-cell *matHeaderCellDef> Value </th>
+                <td mat-cell *matCellDef="let element">
+                 {{element.value}}
+                 </td>
+              </ng-container>
+            
+             
+              <ng-container matColumnDef="actions" style="display: none">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let element"> 
+                    <button mat-icon-button color="primary" (click)="viewProperty(element.id)">
+                        <mat-icon>visibility</mat-icon>
+                      </button>
+                
+                </td>
+              </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table> 
+           </ng-template>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        
+        </div>
+
+     
+      </div>
+  
+    
+    </mat-card-content>
+</mat-card>

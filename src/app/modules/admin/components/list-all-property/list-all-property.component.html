@@ -72,6 +72,12 @@
                       <mat-icon>visibility</mat-icon>
                       <span>View Property </span>
                     </button>
+
+                    <button mat-menu-item (click)="generateBill(element.id)">
+                      <mat-icon>send</mat-icon>
+                      <span>Generate Bill </span>
+                    </button>
+
                     <button mat-menu-item (click)="editProperty(element.id)">
                       <mat-icon>create</mat-icon>
                       <span>Update Property</span>

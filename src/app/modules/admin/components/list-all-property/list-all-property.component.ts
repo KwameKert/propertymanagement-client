@@ -99,4 +99,12 @@ export class ListAllPropertyComponent implements OnInit {
     });
   }
 
+
+  generateBill(id: Number){
+    this._router.navigate([`/admin/generate_bill/${id}`])
+  }
+
+
+
+  
 }

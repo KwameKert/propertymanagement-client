@@ -14,8 +14,8 @@ export class AdminLayoutComponent implements OnInit {
     {name: 'Owner', url: '/admin/list_owner',  icon: 'supervised_user_circle'},
     {name: 'Property', url: '/admin/list_property', icon: 'widgets'},
     {name: 'Location', url: '/admin/property_location', icon: 'pin_drop'},
+    {name: 'Invoice', url: '/admin/generate_invoice', icon: 'send'},
     {name: 'user', url: '/admin/list_user', icon: 'account_box'},
-    {name: 'leader', url: '/leaders/list',icon: 'supervised_user_circle'},
   ]
     
 

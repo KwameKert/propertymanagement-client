@@ -1,1 +1,22 @@
-<p>owner works!</p>
+<mat-card style="margin-bottom:100px">
+    <google-map height="600px"
+    width="1020px"
+    [center]="center"
+    [zoom]="zoom">
+<map-marker #markerElem
+      *ngFor="let marker of markers"
+      [position]="marker.position"
+      [options]="marker.options"
+      (mapClick)="openInfoWindow(markerElem, marker.info)"></map-marker>
+      <map-info-window >
+    
+            <p><b>PropertyNo: </b>{{infoContent?.propNo}}</p>
+            <p><b>Category: </b>{{infoContent?.propCat}}</p>
+            <p><b>Value: </b>{{infoContent?.value}}</p>
+            <p><b>Rate: </b>{{infoContent?.rate}}</p> 
+ 
+       </map-info-window>
+
+      
+</google-map>
+</mat-card>
