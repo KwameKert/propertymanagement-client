@@ -20,6 +20,8 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { ExcerptFilter } from './excerpts.pipe';
 import { MatSelectModule } from '@angular/material/select';
 import { DeleteItemComponent} from './components/delete-item/delete-item.component';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [ ExcerptFilter, DeleteItemComponent],
@@ -42,6 +44,7 @@ import { DeleteItemComponent} from './components/delete-item/delete-item.compone
     NgxSkeletonLoaderModule,
     MatFormFieldModule,
     MatMenuModule,
+    MatNativeDateModule,
     MatStepperModule 
     
   ],
@@ -50,7 +53,6 @@ import { DeleteItemComponent} from './components/delete-item/delete-item.compone
   exports: [
     MatTableModule,
     MatInputModule,
-    MatDatepickerModule,
     MatDatepickerModule,
     FormsModule,
     ReactiveFormsModule,
@@ -68,6 +70,7 @@ import { DeleteItemComponent} from './components/delete-item/delete-item.compone
     ExcerptFilter,
     MatFormFieldModule,
     MatMenuModule,
+    MatNativeDateModule,
     MatStepperModule
   ],
   entryComponents: []

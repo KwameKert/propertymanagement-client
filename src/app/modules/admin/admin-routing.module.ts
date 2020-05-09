@@ -9,6 +9,7 @@ import { ListOwnerComponent } from './components/list-owner/list-owner.component
 import { EditPropertyComponent } from './components/edit-property/edit-property.component';
 import { ViewPropertyComponent } from './components/view-property/view-property.component';
 import { ViewOwnerComponent } from './components/view-owner/view-owner.component';
+import { GenerateBillComponent } from './components/generate-bill/generate-bill.component';
 
 const routes: Routes  = [
 
@@ -21,6 +22,7 @@ const routes: Routes  = [
     {path: 'edit_property/:id', component:EditPropertyComponent},
     {path: 'view_property/:id', component:ViewPropertyComponent},
     {path: 'view_owner/:id', component:ViewOwnerComponent},
+    {path: 'generate_bill/:id', component: GenerateBillComponent},
 
 ];
 
