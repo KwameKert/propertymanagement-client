@@ -14,6 +14,7 @@ export class GenerateBillComponent implements OnInit {
   propertyId: any;
   property: any;
   billForm: FormGroup;
+  invoiceId: string;
 
   constructor(private _route: ActivatedRoute, private _crudService: CrudService, private _toastr: ToastrService, private _fb: FormBuilder) { }
 
@@ -22,15 +23,17 @@ export class GenerateBillComponent implements OnInit {
 
       this.propertyId = this._route.snapshot.paramMap.get('id');
       this.fetchProperty().then(()=>{
+        this.invoiceId = `${new Date().getFullYear()}${Math.floor(Math.random() * (3000 - 1000) + 4)}`
         this.loadForm()
+
       })
       
   
   }
 
   loadForm(){
-      this.billForm = this._fb.group({
-        billId: new FormControl({value: `${new Date().getFullYear()}${Math.floor(Math.random() * (3000 - 1000) + 4)}`, disabled: true}),
+      this.billForm =  this._fb.group({
+        invoiceId: this.invoiceId,
         propertyId: this.propertyId,
         notes: '',
         dueDate: new FormControl('', Validators.required),
@@ -58,6 +61,8 @@ export class GenerateBillComponent implements OnInit {
 
 
   saveBill(){
+
+  
       this._crudService.addItem(this.billForm.value, "invoice").subscribe(data=>{
         console.log(data)
       }, error=>{

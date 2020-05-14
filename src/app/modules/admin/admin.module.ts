@@ -17,18 +17,19 @@ import { EditPropertyComponent } from './components/edit-property/edit-property.
 import { ViewPropertyComponent } from './components/view-property/view-property.component';
 import { ViewUserComponent } from './components/view-user/view-user.component';
 import { ViewOwnerComponent } from './components/view-owner/view-owner.component';
-import { GenerateBillComponent } from './components/generate-bill/generate-bill.component';
+import { FinanceModule } from '../finance/finance.module';
 
 
 
 
 @NgModule({
-  declarations: [AdminComponent, ListAllPropertyComponent, AddUserComponent, ListUserComponent, PropertyLocationsComponent, AddPropertyComponent, AddPropertyOwnerComponent, AddOwnerComponent, ListOwnerComponent, SearchOwnerComponent, EditPropertyComponent, ViewPropertyComponent, ViewUserComponent, ViewOwnerComponent, GenerateBillComponent, ],
+  declarations: [AdminComponent, ListAllPropertyComponent, AddUserComponent, ListUserComponent, PropertyLocationsComponent, AddPropertyComponent, AddPropertyOwnerComponent, AddOwnerComponent, ListOwnerComponent, SearchOwnerComponent, EditPropertyComponent, ViewPropertyComponent, ViewUserComponent, ViewOwnerComponent, ],
   imports: [
     CommonModule,
     SharedModule,
     AdminRoutingModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    FinanceModule
   ]
 })
 export class AdminModule { }
