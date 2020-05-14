@@ -30,11 +30,9 @@ export class GenerateBillComponent implements OnInit {
 
   loadForm(){
       this.billForm = this._fb.group({
-        code: new FormControl({value: '', disabled: true}),
-        billId: new FormControl('', Validators.required),
+        billId: new FormControl({value: `${new Date().getFullYear()}${Math.floor(Math.random() * (3000 - 1000) + 4)}`, disabled: true}),
         propertyId: this.propertyId,
         notes: '',
-        terms: '',
         dueDate: new FormControl('', Validators.required),
         amount: this.property.value*this.property.rate,
         billDate: new FormControl('', Validators.required)
@@ -60,6 +58,11 @@ export class GenerateBillComponent implements OnInit {
 
 
   saveBill(){
+      this._crudService.addItem(this.billForm.value, "invoice").subscribe(data=>{
+        console.log(data)
+      }, error=>{
+        console.error(error)
+      })
 
   }
 

@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-8 offset-1">
+  <div class="col-8 offset-2">
     <mat-card>
       <mat-card-header>
           <mat-card-title>
@@ -9,48 +9,58 @@
   
       <mat-card-content class="text-center">
           <form [formGroup]="billForm" (ngSubmit)="saveBill()" *ngIf="property" >
-              <div class="row">
-               
+
+            <div class="row">
+              <div class="col-12">
+                <mat-form-field  appearance="outline" >
+                  <mat-label>Bill Id</mat-label>
+                  <input matInput  formControlName="billId" >
+                </mat-form-field>
+              </div>
+            </div>
+
+              <div class="row">              
                 <div class="col-12"> 
                   <mat-form-field  appearance="outline" >
                   <mat-label>Bill To  </mat-label>
-                  <input matInput [(ngModel)]="property.owner"  [ngModelOptions]="{standalone: true}">
-                </mat-form-field> 
-  
+                  <input matInput [(ngModel)]="property.owner"  [ngModelOptions]="{standalone: true}" disabled>
+                </mat-form-field>
                 </div>
               </div>
   
                 <div class="row">
-                  <div class="col-12">
+                  <div class="col-sm-12 col-md-6 col-lg-6">
                     <mat-form-field  appearance="outline" >
                       <mat-label>Property No.  </mat-label>
-                      <input matInput [(ngModel)]="property.propNo"  [ngModelOptions]="{standalone: true}">
+                      <input matInput [(ngModel)]="property.propNo"  [ngModelOptions]="{standalone: true}" disabled>
                     </mat-form-field> 
                   </div>
-                </div>
-  
-                <div class="row">
-                  <div class="col-12">
+
+                  <div class="col-sm-12 col-md-6 col-lg-6">
                     <mat-form-field  appearance="outline" >
                       <mat-label>Property Category  </mat-label>
-                      <input matInput [(ngModel)]="property.propCat" [ngModelOptions]="{standalone: true}" >
+                      <input matInput [(ngModel)]="property.propCat" [ngModelOptions]="{standalone: true}"  disabled>
                     </mat-form-field> 
                   </div>
                 </div>
   
+             
+  
                 <div class="row">
-                  <div class="col-7">
+                  <div class="col-6">
                     <mat-form-field  appearance="outline" >
-                    <mat-label>Date</mat-label>
+                    <mat-label>Bill Date</mat-label>
                     <input matInput [matDatepicker]="picker"   formControlName="billDate">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
                   </div>
-                  <div class="col-5">
+                  <div class="col-6">
                     <mat-form-field  appearance="outline">
-                    <mat-label>Year</mat-label>
-                    <input matInput value="2020">
+                    <mat-label>Due Date</mat-label>
+                    <input matInput [matDatepicker]="picker1"   formControlName="dueDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
                     </mat-form-field>
                   </div>
   
@@ -59,23 +69,32 @@
   
   
                 <div class="row">
-                  <div class="col-7">
+                  <div class="col-6">
                     <mat-form-field  appearance="outline" >
                     <mat-label>Amount</mat-label>
                     <input matInput  formControlName="amount" >
                   </mat-form-field>
                   </div>
-                  <div class="col-5">
+                  <div class="col-6">
                     <mat-form-field  appearance="outline" >
                     <mat-label>Rate</mat-label>
-                    <input matInput [(ngModel)]="property.rate" [ngModelOptions]="{standalone: true}">
+                    <input matInput [(ngModel)]="property.rate" [ngModelOptions]="{standalone: true}" disabled>
                     </mat-form-field>
                   </div>
-  
-  
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Notes</mat-label>
+                      <textarea matInput formControlName="notes"></textarea>
+                    </mat-form-field>
+                  </div>
                 </div>
   
-                
+                <div class="text-right">
+                  <button mat-raised-button color="primary" class="" type="submit"  [disabled]="!billForm.valid"> <mat-icon>done</mat-icon> Send Bill</button>
+                </div>
       
           </form>
          
