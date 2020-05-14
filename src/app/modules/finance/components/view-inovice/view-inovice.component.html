@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>View Invoice</h1>
+<div mat-dialog-content class="container">
+    <div  class="row justify-content-center">
+
+        <div class="col-md-12">
+           <p> <b>Invoice Id : </b> {{data.invoiceId}} </p>
+           <p> <b>Property Id : </b> {{data.propertyNo}} </p>
+           <p> <b>Amount : </b> {{data.amount}} </p>
+           <p> <b>Status : </b> {{data.stat}} </p>
+           <p> <b>Bill Date : </b> {{data.billDate | date : 'fullDate'}} </p>
+           <p> <b>Due Date : </b> {{data.dateDue | date : 'fullDate'}}  </p>
+        </div>
+ 
+    
+    </div>
+    
+</div>
+<div mat-dialog-actions class="float-right">
+    <button mat-button (click)="close()" class="float-right">Cancel</button>
+    
+  </div>

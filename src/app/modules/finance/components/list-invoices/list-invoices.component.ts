@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
+import { ViewInoviceComponent } from '../view-inovice/view-inovice.component';
 
 @Component({
   selector: 'app-list-invoices',
@@ -41,7 +42,16 @@ export class ListInvoicesComponent implements OnInit {
     })
   }
 
-  viewInvoice(){
+  viewInvoice(data: any){
+
+    const dialogRef = this.dialog.open(ViewInoviceComponent, {
+      width: '550px',
+      data
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+     
+    });
 
   }
 
