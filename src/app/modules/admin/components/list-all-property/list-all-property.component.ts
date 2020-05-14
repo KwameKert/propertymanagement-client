@@ -44,7 +44,7 @@ export class ListAllPropertyComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.isLoading = false;
     }, error=>{
-
+      console.error(error)
     })
   }
 

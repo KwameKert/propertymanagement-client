@@ -12,9 +12,37 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ListInvoicesComponent implements OnInit {
 
-  constructor() { }
+  isLoading: boolean = true;
+  dataSource: any = null;
+
+
+  displayedColumns: Array<string> = ['propNo', 'invoiceId', 'amount', 'status', 'actions'] ;
+
+  constructor(private _crudService: CrudService, public dialog: MatDialog, private _router: Router) { }
+
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
+  
 
   ngOnInit(): void {
+    this.loadInvoice();
+  }
+
+
+
+  loadInvoice(){
+    this._crudService.fetchAll("invoice").subscribe(data=>{
+      this.dataSource =  new MatTableDataSource(data.data);
+      this.dataSource.paginator = this.paginator;
+      this.isLoading = false;
+    }, error=>{
+
+    })
+  }
+
+  viewInvoice(){
+
   }
 
 }
