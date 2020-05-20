@@ -4,6 +4,7 @@ import { PropertyListComponent } from './components/property-list/property-list.
 import { DashboardModule } from '../dashboard/dashboard.module';
 import { PropertyOwnerRoutingModule } from './property-owner-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { PropertyModule } from '../property/property.module';
 
 
 
@@ -13,6 +14,7 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule, 
     SharedModule,
     PropertyOwnerRoutingModule,
+    PropertyModule,
     DashboardModule
   ]
 })

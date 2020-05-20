@@ -7,7 +7,7 @@ import { PropertyLocationsComponent } from './components/property-locations/prop
 import { AddPropertyOwnerComponent } from './components/add-property-owner/add-property-owner.component';
 import { ListOwnerComponent } from './components/list-owner/list-owner.component';
 import { EditPropertyComponent } from './components/edit-property/edit-property.component';
-import { ViewPropertyComponent } from './components/view-property/view-property.component';
+import { ViewPropertyComponent } from '../property/components/view-property/view-property.component';
 import { ViewOwnerComponent } from './components/view-owner/view-owner.component';
 import { GenerateBillComponent, ListInvoicesComponent} from '../finance';
 

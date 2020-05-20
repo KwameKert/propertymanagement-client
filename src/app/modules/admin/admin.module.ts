@@ -14,10 +14,11 @@ import { AddOwnerComponent } from './components/add-owner/add-owner.component';
 import { ListOwnerComponent } from './components/list-owner/list-owner.component';
 import { SearchOwnerComponent } from './components/search-owner/search-owner.component';
 import { EditPropertyComponent } from './components/edit-property/edit-property.component';
-import { ViewPropertyComponent } from './components/view-property/view-property.component';
+import { ViewPropertyComponent } from '../property/components/view-property/view-property.component';
 import { ViewUserComponent } from './components/view-user/view-user.component';
 import { ViewOwnerComponent } from './components/view-owner/view-owner.component';
 import { FinanceModule } from '../finance/finance.module';
+import { PropertyModule } from '../property/property.module';
 
 
 
@@ -29,7 +30,9 @@ import { FinanceModule } from '../finance/finance.module';
     SharedModule,
     AdminRoutingModule,
     GoogleMapsModule,
-    FinanceModule
+    FinanceModule,
+    PropertyModule
+    
   ]
 })
 export class AdminModule { }
