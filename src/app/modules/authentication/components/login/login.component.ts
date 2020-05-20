@@ -45,13 +45,13 @@ export class LoginComponent implements OnInit {
       switch(role){
         case "ADMIN":
           console.log(role)
-          this.router.navigate(['/admin/dashboard']);
+          return  this.router.navigate(['/admin/dashboard']);
           break;
         case "COLLECTOR":
-          this.router.navigate(['/collector/dashboard']);
+          return this.router.navigate(['/collector/dashboard']);
           break;
         case "OWNER":
-          this.router.navigate(['/owner/dashboard']);
+          return this.router.navigate(['/owner/dashboard']);
           break;
 
       }

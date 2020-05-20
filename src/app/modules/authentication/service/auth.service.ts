@@ -10,6 +10,7 @@ export class AuthService {
 
    private _baseUrl :String = environment.api_host;
    private loggedInStatus = localStorage.getItem("status");
+   private authority = localStorage.getItem("role");
 
    constructor(private _httpClient: HttpClient) { }
 
@@ -38,6 +39,10 @@ export class AuthService {
 
   public get isLoggedIn(){
     return this.loggedInStatus;
+  }
+
+  public get userRole(){
+    return  this.authority;
   }
 
 

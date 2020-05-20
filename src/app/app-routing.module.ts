@@ -5,7 +5,7 @@ import {DefaultComponent} from './layouts/default/default.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { CollectorLayoutComponent } from './layouts/collector-layout/collector-layout.component';
 import { OwnerLayoutComponent } from './layouts/owner-layout/owner-layout.component';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './guards/components/auth.guard';
 
 const routes: Routes= [
 {
