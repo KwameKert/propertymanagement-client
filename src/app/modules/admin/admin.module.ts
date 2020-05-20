@@ -24,7 +24,7 @@ import { PropertyModule } from '../property/property.module';
 
 
 @NgModule({
-  declarations: [AdminComponent, ListAllPropertyComponent, AddUserComponent, ListUserComponent, PropertyLocationsComponent, AddPropertyComponent, AddPropertyOwnerComponent, AddOwnerComponent, ListOwnerComponent, SearchOwnerComponent, EditPropertyComponent, ViewPropertyComponent, ViewUserComponent, ViewOwnerComponent, ],
+  declarations: [AdminComponent, ListAllPropertyComponent, AddUserComponent, ListUserComponent, PropertyLocationsComponent, AddPropertyComponent, AddPropertyOwnerComponent, AddOwnerComponent, ListOwnerComponent, SearchOwnerComponent, EditPropertyComponent, ViewUserComponent, ViewOwnerComponent, ],
   imports: [
     CommonModule,
     SharedModule,

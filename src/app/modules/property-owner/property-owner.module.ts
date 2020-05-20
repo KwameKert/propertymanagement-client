@@ -5,6 +5,7 @@ import { DashboardModule } from '../dashboard/dashboard.module';
 import { PropertyOwnerRoutingModule } from './property-owner-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { PropertyModule } from '../property/property.module';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 
@@ -15,6 +16,7 @@ import { PropertyModule } from '../property/property.module';
     SharedModule,
     PropertyOwnerRoutingModule,
     PropertyModule,
+    GoogleMapsModule,
     DashboardModule
   ]
 })

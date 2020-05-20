@@ -52,7 +52,7 @@ export class PropertyListComponent implements OnInit {
 
   viewProperty(id: Number){
 
-   this._router.navigate([`/admin/view_property/${id}`])
+   this._router.navigate([`/owner/view_property/${id}`])
   }
 
 
