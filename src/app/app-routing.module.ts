@@ -5,7 +5,7 @@ import {DefaultComponent} from './layouts/default/default.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { CollectorLayoutComponent } from './layouts/collector-layout/collector-layout.component';
 import { OwnerLayoutComponent } from './layouts/owner-layout/owner-layout.component';
-import { AuthGuard } from './guards/components/auth.guard';
+import { AuthGuard, CollectorGuard, AdminGuard, OwnerGuard } from './guards';
 
 const routes: Routes= [
 {
@@ -20,7 +20,7 @@ const routes: Routes= [
    component: AdminLayoutComponent,
    loadChildren: () => import('./modules/admin/admin.module')
                       .then(m => m.AdminModule),
-   canActivate:[AuthGuard]                    
+   canActivate:[AuthGuard, AdminGuard]                    
  },
 //  {
 //    path:'', 
@@ -35,7 +35,7 @@ const routes: Routes= [
    component: OwnerLayoutComponent,
    loadChildren: () => import('./modules/property-owner/property-owner.module')
                       .then(m => m.PropertyOwnerModule),
-  canActivate:[AuthGuard]  
+  canActivate:[AuthGuard, OwnerGuard]  
                     },
 
 

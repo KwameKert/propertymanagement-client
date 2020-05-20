@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
     this.isLoading  = true;
     this._authService.loginUser(this.loginForm.value).subscribe(data=>{
 
-      this._toastr
       let authData = {
           userId: data.user.id,
           token: data.token,
@@ -46,13 +45,11 @@ export class LoginComponent implements OnInit {
         case "ADMIN":
           console.log(role)
           return  this.router.navigate(['/admin/dashboard']);
-          break;
         case "COLLECTOR":
           return this.router.navigate(['/collector/dashboard']);
-          break;
         case "OWNER":
           return this.router.navigate(['/owner/dashboard']);
-          break;
+          
 
       }
 
