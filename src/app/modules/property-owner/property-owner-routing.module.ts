@@ -10,7 +10,7 @@ const routes: Routes = [
 
     {path: 'dashboard', component: OwnerComponent},
     {path: 'properties', component: PropertyListComponent},
-    {path: 'view_property', component: ViewPropertyComponent}
+    {path: 'view_property/:id', component: ViewPropertyComponent}
 ]
 
 
