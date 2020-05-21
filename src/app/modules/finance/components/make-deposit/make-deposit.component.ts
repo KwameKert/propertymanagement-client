@@ -44,7 +44,7 @@ export class MakeDepositComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result.saved){
-        this._router.navigate(['/owner/invoice'])
+        this._router.navigate(['/owner/invoices'])
         console.log(result)
       }
     

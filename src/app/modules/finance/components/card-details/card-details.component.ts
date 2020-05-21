@@ -15,7 +15,7 @@ declare var $: any;
 })
 export class CardDetailsComponent implements OnInit {
 
-  userId: string = localStorage.getItem("userId");
+  userId: number =parseInt(localStorage.getItem("userId"));
   cardForm: FormGroup;
   formValid: boolean  = false;
   submitted: boolean;
@@ -119,8 +119,9 @@ export class CardDetailsComponent implements OnInit {
     this._ngxService.start();
 
     let data = {
-      amount: this.data.price,
-      program: this.data._id,
+      amount: this.data.amount,
+      invoiceId: this.data.id,
+      userId: this.userId,
       method: 'card'
     }
 
