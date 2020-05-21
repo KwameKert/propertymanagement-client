@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
     isLoading: boolean = false;
     loginForm: FormGroup ;
+    link: string ;
 
   constructor(private router: Router, private _fb: FormBuilder,private _authService: AuthService, private _toastr: ToastrService) { }
 
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   loginUser(){
     this.isLoading  = true;
-    this._authService.loginUser(this.loginForm.value).subscribe(data=>{
+    this._authService.loginUser(this.loginForm.value).subscribe(async data=>{
 
       let authData = {
           userId: data.user.id,
@@ -35,30 +36,32 @@ export class LoginComponent implements OnInit {
           role: data.user.roles[0].role
       }
       
-      this._authService.setUserDetails(authData);
+     await  this._authService.setUserDetails(authData);
       let role = data.user.roles[0].role
 
      
-     
+    
       
       switch(role){
         case "ADMIN":
-          console.log(role)
-          return  this.router.navigate(['/admin/dashboard']);
+            this.link = '/admin/dashboard';
           break;
         case "COLLECTOR":
-          return this.router.navigate(['/collector/dashboard']);
+            this.link = '/collector/dashboard';
           break;
         case "OWNER":
-          return this.router.navigate(['/owner/dashboard']);
+            this.link = '/owner/dashboard';
           break;
           
 
       }
 
+     
       this._toastr.success("Welcome to Prop Management 🙂","",{
         timeOut:2000
       })
+
+      return this.router.navigate([this.link])
     }, error=>{
 
       console.error(error)
@@ -67,9 +70,8 @@ export class LoginComponent implements OnInit {
         timeOut:2000
       })
 
-    }).add(()=>{
-      this.isLoading = false;
-    })
+    });
+    this.isLoading = false;
     //this.router.navigate(['dashboard']);
   }
 

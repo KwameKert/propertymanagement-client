@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CrudService } from 'src/app/modules/shared/service';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup,  FormControl, Validators } from '@angular/forms';
@@ -16,7 +16,7 @@ export class GenerateBillComponent implements OnInit {
   billForm: FormGroup;
   invoiceId: string;
 
-  constructor(private _route: ActivatedRoute, private _crudService: CrudService, private _toastr: ToastrService, private _fb: FormBuilder) { }
+  constructor(private _route: ActivatedRoute, private _crudService: CrudService, private _toastr: ToastrService, private _fb: FormBuilder, private _router: Router) { }
 
 
   ngOnInit(): void {
@@ -64,8 +64,13 @@ export class GenerateBillComponent implements OnInit {
 
   
       this._crudService.addItem(this.billForm.value, "invoice").subscribe(data=>{
+
         console.log(data)
+
+        this._toastr.success("Invoice has been generated", "Success", {  timeOut:4000});
+        this._router.navigate(['/admin/list_property']);
       }, error=>{
+        this._toastr.info("An error occured", "Oops 🥺", {  timeOut:4000});
         console.error(error)
       })
 
