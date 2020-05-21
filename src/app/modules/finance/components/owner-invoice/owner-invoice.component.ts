@@ -40,6 +40,7 @@ export class OwnerInvoiceComponent implements OnInit {
 
   viewInvoice(id: number){
 
+    this._router.navigate([`/owner/make-deposit/${id}`])
   }
 
 }

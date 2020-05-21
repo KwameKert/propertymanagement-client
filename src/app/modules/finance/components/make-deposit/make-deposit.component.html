@@ -1,0 +1,44 @@
+<div class="container">    
+    <div class="row">
+        <div class="col-md-5">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>
+                  Invoice Details
+                </mat-card-title>
+              </mat-card-header>
+                <mat-card-content >
+                  <div *ngIf="invoice">
+                    <p> <b>Invoice Id : </b> {{invoice.invoiceId}} </p>
+                    <p> <b>Property Id : </b> {{invoice.propertyNo}} </p>
+                    <p> <b>Amount : </b> {{invoice.amount}} </p>
+                    <p> <b>Status : </b> {{invoice.stat}} </p>
+                    <p> <b>Bill Date : </b> {{invoice.billDate | date : 'fullDate'}} </p>
+                    <p> <b>Due Date : </b> {{invoice.dateDue | date : 'fullDate'}}  </p>
+                  </div>
+                  
+                    </mat-card-content>
+            </mat-card>
+        </div>
+      <div class="col-xs-12 col-md-7">            
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <h4>Payment Method</h4> 
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content >
+               
+              <button mat-raised-button color="primary" class="mr-4" (click)="cardForm()"><mat-icon>credit_card</mat-icon> Card Details </button>
+              <button mat-raised-button color="accent" (click)="momoDetails()"> <mat-icon>stay_current_portrait</mat-icon> Momo Details</button>
+
+
+            </mat-card-content>
+        
+        <!-- <p class="mt-2">Try it out using the test card number 4242 4242 4242 4242, a random three-digit CVC number and any expiration date in the future.</p> -->
+
+
+    </mat-card>
+    </div>
+  </div>
+  </div>
