@@ -22,6 +22,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { AuthInterceptor, TokenInterceptor } from './interceptors';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { AuthInterceptor, TokenInterceptor } from './interceptors';
     MatSidenavModule,  
     HttpClientModule,
     NgxUiLoaderModule,
+    ChartsModule,
     ToastrModule.forRoot(), 
     
   

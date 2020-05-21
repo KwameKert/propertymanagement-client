@@ -19,6 +19,7 @@ import { ViewUserComponent } from './components/view-user/view-user.component';
 import { ViewOwnerComponent } from './components/view-owner/view-owner.component';
 import { FinanceModule } from '../finance/finance.module';
 import { PropertyModule } from '../property/property.module';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -28,6 +29,7 @@ import { PropertyModule } from '../property/property.module';
   imports: [
     CommonModule,
     SharedModule,
+    ChartsModule,
     AdminRoutingModule,
     GoogleMapsModule,
     FinanceModule,
