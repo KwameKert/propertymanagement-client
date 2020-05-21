@@ -7,6 +7,7 @@
                   Invoice Details
                 </mat-card-title>
               </mat-card-header>
+              <hr>
                 <mat-card-content >
                   <div *ngIf="invoice">
                     <p> <b>Invoice Id : </b> {{invoice.invoiceId}} </p>
@@ -21,7 +22,7 @@
             </mat-card>
         </div>
       <div class="col-xs-12 col-md-7">            
-        <mat-card>
+        <mat-card *ngIf="invoice.stat == 'Unpaid'; else elseBlock">
             <mat-card-header>
                 <mat-card-title>
                     <h4>Payment Method</h4> 
@@ -31,12 +32,28 @@
                
               <button mat-raised-button color="primary" class="mr-4" (click)="cardForm()" [disabled]="invoice.stat == 'Paid'"><mat-icon>credit_card</mat-icon> Card Details </button>
               <button mat-raised-button color="accent" (click)="momoDetails()" [disabled]="invoice.stat == 'Paid'"> <mat-icon>stay_current_portrait</mat-icon> Momo Details</button>
-
-
             </mat-card-content>
-
-
     </mat-card>
+
+
+    <ng-template #elseBlock>
+        <mat-card >
+            <mat-card-header>
+                <mat-card-title>
+                    <h4>Transaction Details</h4> 
+                </mat-card-title>
+            </mat-card-header>
+            <hr>
+            <mat-card-content >
+                <p><b>Amount:</b> {{this.transaction.amount}}</p>
+                <p><b>Payment Method:</b>  {{this.transaction.method }}</p>
+                <p><b>Payment Date: </b>{{this.transaction.createdAt | date: 'fullDate' }}</p>
+               
+              
+            </mat-card-content>
+    </mat-card>
+
+    </ng-template>
     </div>
   </div>
   </div>

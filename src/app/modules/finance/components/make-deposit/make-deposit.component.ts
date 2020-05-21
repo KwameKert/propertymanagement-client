@@ -14,6 +14,7 @@ export class MakeDepositComponent implements OnInit {
 
   invoiceId: any;
   invoice: any;
+  transaction: any;
   card: boolean ;
   momo: boolean;
 
@@ -29,6 +30,7 @@ export class MakeDepositComponent implements OnInit {
   getProgram() {
     this._crudService.fetchItem({id: this.invoiceId, module: 'invoice'}).subscribe(data=>{
       this.invoice = data.data;
+      this.transaction = data.data.transaction
     //  console.log(this.invoice)
     }, error =>{
       console.error(error);
