@@ -5,6 +5,7 @@ import { OwnerComponent } from './components/owner/owner.component';
 import {GoogleMapsModule} from '@angular/google-maps';
 import { AuditorComponent } from './components/auditor/auditor.component';
 import { SharedModule } from '../shared/shared.module';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     GoogleMapsModule,
+    ChartsModule,
     SharedModule
   ],
   exports: [

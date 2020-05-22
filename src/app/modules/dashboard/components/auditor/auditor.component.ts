@@ -16,22 +16,21 @@ export class AuditorComponent implements OnInit {
   transaction: number;
   revenue: number;
   
-  // public lineChartData: ChartDataSets[];
+  public lineChartData: ChartDataSets[];
 
-  // public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  // public lineChartOptions: ChartOptions  = {
-  //   responsive: true,
-  // };
-  // public lineChartColors: Color[] = [
-  //   {
-  //     borderColor: 'black',
-  //     backgroundColor: '#f767c461',
-  //   },
-  // ];
-  // public lineChartLegend = true;
-  // public lineChartType = 'line';
-  // public lineChartPlugins = [];
-
+  public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartOptions: ChartOptions  = {
+    responsive: true,
+  };
+  public lineChartColors: Color[] = [
+    {
+      borderColor: 'black',
+      backgroundColor: '#f767c461',
+    },
+  ];
+  public lineChartLegend = true;
+  public lineChartType = 'line';
+  public lineChartPlugins = [];
 constructor(private _crudService: CrudService,  private ngxService: NgxUiLoaderService){}
 
 
@@ -51,7 +50,7 @@ fetchData(){
       this.receivables = data.data.receivables
       this.transaction = data.data.transaction
       this.revenue = data.data.revenue  
-      // this.monthlyTransactions(data.data.month);
+      this.monthlyTransactions(data.data.month);
     
     }, error=>{
 
@@ -59,12 +58,13 @@ fetchData(){
 }
 
 
-// monthlyTransactions(month: Array<Array<number>>){
+monthlyTransactions(month: Array<Array<number>>){
 
-//     let vals = month.map(item=> item[1]);
-//     this.lineChartData = [{data: vals, label: 'Monthly Transactions '}]
+    let vals = month.map(item=> item[1]);
+    this.lineChartData = [{data: vals, label: 'Monthly Transactions '}]
+    console.log(this.lineChartData)
 
-// }
+}
 
 
 
