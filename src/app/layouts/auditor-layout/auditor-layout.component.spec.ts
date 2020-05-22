@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CollectorLayoutComponent } from './collector-layout.component';
+import { AuditorLayoutComponent } from './auditor-layout.component';
 
-describe('CollectorLayoutComponent', () => {
-  let component: CollectorLayoutComponent;
-  let fixture: ComponentFixture<CollectorLayoutComponent>;
+describe('AuditorLayoutComponent', () => {
+  let component: AuditorLayoutComponent;
+  let fixture: ComponentFixture<AuditorLayoutComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CollectorLayoutComponent ]
+      declarations: [ AuditorLayoutComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CollectorLayoutComponent);
+    fixture = TestBed.createComponent(AuditorLayoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private _fb: FormBuilder,private _authService: AuthService, private _toastr: ToastrService) { }
 
   ngOnInit() {
+    this._authService.logUserOut();
     this.loginForm = this._fb.group({
         username: new FormControl('', Validators.required),
         password: new FormControl('', Validators.required)
@@ -48,6 +49,9 @@ export class LoginComponent implements OnInit {
           break;
         case "COLLECTOR":
             this.link = '/collector/dashboard';
+            break;
+        case "AUDITOR":
+            this.link = '/auditor/dashboard';    
           break;
         case "OWNER":
             this.link = '/owner/dashboard';

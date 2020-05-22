@@ -16,13 +16,13 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { CollectorLayoutComponent } from './layouts/collector-layout/collector-layout.component';
 import { OwnerLayoutComponent } from './layouts/owner-layout/owner-layout.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { AuthInterceptor, TokenInterceptor } from './interceptors';
 import { ChartsModule } from 'ng2-charts';
+import { AuditorLayoutComponent } from './layouts/auditor-layout/auditor-layout.component';
 
 @NgModule({
   declarations: [
@@ -33,8 +33,8 @@ import { ChartsModule } from 'ng2-charts';
     FooterComponent,
     DefaultComponent,
     AdminLayoutComponent,
-    CollectorLayoutComponent,
-    OwnerLayoutComponent
+    OwnerLayoutComponent,
+    AuditorLayoutComponent
 
   ],
   imports: [

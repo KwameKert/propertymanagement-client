@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes ,PreloadAllModules} from '@angular/router';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
-import {DefaultComponent} from './layouts/default/default.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { CollectorLayoutComponent } from './layouts/collector-layout/collector-layout.component';
 import { OwnerLayoutComponent } from './layouts/owner-layout/owner-layout.component';
-import { AuthGuard, CollectorGuard, AdminGuard, OwnerGuard } from './guards';
+import { AuditorLayoutComponent } from './layouts/auditor-layout/auditor-layout.component';
+import { AuthGuard, AdminGuard, OwnerGuard, AuditorGuard } from './guards';
 
 const routes: Routes= [
 {
@@ -22,13 +21,13 @@ const routes: Routes= [
                       .then(m => m.AdminModule),
    canActivate:[AuthGuard, AdminGuard]                    
  },
-//  {
-//    path:'', 
-//    component: CollectorLayoutComponent,
-//    loadChildren: () => import('./modules/dashboard/dashboard.module')
-//                       .then(m => m.DashboardModule),
-//    canActivate:[AuthGuard]                     
-//  },
+ {
+   path:'auditor', 
+   component: AuditorLayoutComponent,
+   loadChildren: () => import('./modules/auditor/auditor.module')
+                      .then(m => m.AuditorModule),
+   canActivate:[AuthGuard, AuditorGuard]                     
+ },
 
  {
    path:'owner', 
