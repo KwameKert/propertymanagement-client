@@ -19,7 +19,8 @@ const routes: Routes= [
    component: AdminLayoutComponent,
    loadChildren: () => import('./modules/admin/admin.module')
                       .then(m => m.AdminModule),
-   canActivate:[AuthGuard, AdminGuard]                    
+  // canActivate:[AuthGuard, AdminGuard]                    
+  // canActivate:[AuthGuard]                    
  },
  {
    path:'auditor', 
