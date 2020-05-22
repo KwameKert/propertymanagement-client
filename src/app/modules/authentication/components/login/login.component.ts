@@ -74,10 +74,12 @@ export class LoginComponent implements OnInit {
         timeOut:2000
       })
 
+    }).add(()=>{
+      this.isLoading = false;
     });
 
-    console.log("Login")
-    this.isLoading = false;
+  //  console.log("Login")
+   // 
     //this._router.navigate(['/admin/dashboard']);
   }
 

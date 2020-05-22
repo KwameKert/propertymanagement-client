@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  api_host : 'http://localhost:8080/api/v1'
+  api_host : 'https://propertymgt-api.herokuapp.com/api/v1',
+ // api_host : 'http://localhost:8080/api/v1'
 };
 
 /*

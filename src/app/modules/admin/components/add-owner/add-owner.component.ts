@@ -19,6 +19,11 @@ export class AddOwnerComponent implements OnInit {
 
   ngOnInit(): void {
     
+  this.loadForm();
+  }
+
+
+  loadForm() {
     this.userForm = this._fb.group({
       username: new FormControl('', [Validators.required, Validators.minLength(7)]),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -29,14 +34,13 @@ export class AddOwnerComponent implements OnInit {
     })
   }
 
-
   addUser(){
 
 
     this.ngxService.start();
     this._crudService.addItem(this.userForm.value, "user").subscribe(data=>{
       this._toastr.success(data.message, "Success  😊", {  timeOut:2000});
-      this.userForm.reset();
+      this.loadForm();
       this.newUser.emit(true)
     }, error=>{
       console.error(error)
