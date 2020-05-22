@@ -8,17 +8,18 @@ import { OwnerInvoiceComponent } from './components/owner-invoice/owner-invoice.
 import { MakeDepositComponent } from './components/make-deposit/make-deposit.component';
 import { CardDetailsComponent } from './components/card-details/card-details.component';
 import { MomoComponent } from './components/momo/momo.component';
+import { AllTransactionsComponent } from './components/all-transactions/all-transactions.component';
 
 
 
 @NgModule({
-  declarations: [ GenerateBillComponent, ListInvoicesComponent, ViewInoviceComponent, OwnerInvoiceComponent, MakeDepositComponent, CardDetailsComponent, MomoComponent],
+  declarations: [ GenerateBillComponent, ListInvoicesComponent, ViewInoviceComponent, OwnerInvoiceComponent, MakeDepositComponent, CardDetailsComponent, MomoComponent, AllTransactionsComponent],
   imports: [
     CommonModule,
     SharedModule
   ],
   exports: [
-    GenerateBillComponent, ListInvoicesComponent
+    GenerateBillComponent, ListInvoicesComponent, AllTransactionsComponent
   ]
 })
 export class FinanceModule { }

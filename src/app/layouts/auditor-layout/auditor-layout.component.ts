@@ -11,7 +11,7 @@ export class AuditorLayoutComponent implements OnInit {
 
   links: Array<object> = [
     {name: 'dashboard',url: '/auditor/dashboard', icon: 'home'},
-    {name: 'transaction', url: '/auditor/list_transaction',  icon: 'credit_card'}
+    {name: 'transaction', url: '/auditor/all_transaction',  icon: 'credit_card'}
   ]
     
 
